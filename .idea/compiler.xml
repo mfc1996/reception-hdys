@@ -8,12 +8,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="reception-api" />
         <module name="reception-eureka" />
+        <module name="reception-feign-gck" />
+        <module name="reception-provider-gck" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="reception-provider-chenkai" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="reception-eureka" options="-parameters" />
+      <module name="reception-feign-gck" options="-parameters" />
+      <module name="reception-provider-chenkai" options="-parameters" />
+      <module name="reception-provider-gck" options="-parameters" />
     </option>
   </component>
 </project>
