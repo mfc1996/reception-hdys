@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.SeckillMapper">
+
+  <!--查询-->
+    <select id="querySeckill"  resultType="com.jk.model.SpikeBean">
+        select hs.id as id,hp.productName as name,hs.img as img,hs.seckillPrice as seckillPrice from h_spike hs,h_product hp where hs.productId = hp.productId
+    </select>
+
+</mapper>
