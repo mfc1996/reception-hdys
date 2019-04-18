@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.chanpinMapper">
+
+    <select id="queryProduct" resultType="com.jk.model.chanpinBean">
+        select * from h_product
+    </select>
+
+
+    <select id="queryChanpinCount" resultType="int">
+        select count(*) from h_product
+    </select>
+
+    <select id="queryChanpinList"  resultType="com.jk.model.chanpinBean">
+ select * from h_product
+        limit #{start},#{rows}
+</select>
+</mapper>

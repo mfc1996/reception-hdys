@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://www.xb1y.com/index.php/Home/Goods/user_cart.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的购物车</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="./我的购物车_files/common.css">
+<link rel="stylesheet" href="./我的购物车_files/css.css">
+<script src="./我的购物车_files/jQuery-2.2.0.min.js.下载"></script>
+<script src="./我的购物车_files/layer.js.下载"></script><link rel="stylesheet" href="./我的购物车_files/layer.css" id="layui_layer_skinlayercss" style="">
+<!--[if lt IE 9]>
+<script src="/Public/houtai/bootstrap/js/html5shiv.min.js"></script>
+<script src="/Public/houtai/bootstrap/js/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/index.php/Home/Goods/favicon.ico" media="screen">
+
+    
+<link rel="stylesheet" href="./我的购物车_files/common.css">
+<link rel="stylesheet" href="./我的购物车_files/navregister.css">
+
+    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/index.php/Home/Goods/favicon.ico" media="screen">
+</head>
+<body class="hold-transition skin-blue sidebar-mini" id="app">
+<div class="wrapper">
+
+<style>
+.xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #377bee;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
+.xb-right_list{color:#fff;margin-top:50px;}
+.xb-right_list img{width:36px;}
+.xb-qq{margin:5px auto;width:20px;height:20px;border-radius:50%;background:#ff5a00;line-height:20px;font-size:12px;}
+</style>
+    <div class="content-wrapper">
+    <section class="content-header">
+        
+
+    </section>
+    <section class="content">
+        
+<!--我的购物车-->
+<div class="myshopcar-bigbox">
+    <h3>我的购物车</h3>
+    <ul class="myshopcar-topbox">
+        <li class="myshopcar-choise">
+            <input type="checkbox" class="chose-all" name="" onclick="changeState02(this.checked)">全选
+        </li>
+        <li class="myshop-proinfobox">商品信息</li>
+        <li class="myshop-guige">规格</li>
+        <li class="myshop-procom">生产厂家</li>
+        <li class="myshop-proper">单价</li>
+        <li class="myshopcar-num">数量</li>
+        <li class="myshop-discount">折扣优惠</li>
+        <!--<li class="myshopcar-count">合计</li>-->
+        <li class="myshop-itemlist">操作</li>
+    </ul>
+    <form method="post" action="http://www.xb1y.com/index.php/Home/Goods/user_cart2.html" id="form_id">
+    <div class="myshoppro-list">
+        <ul class="myshop-pro-information">
+            <li class="myshopcar-choise">
+                <input type="checkbox" name="goods_id[]" onclick="getPrice(this)" value="926" style="margin: 30px 10px 0 20px;float: left;">
+                <input type="hidden" name="goods_act[]" value="">
+                <a href="http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/926.html" target="_black" class="myshop-pro-img">
+                    <img src="./我的购物车_files/1541667516E2DUUslk.png">
+                </a>
+            </li>
+            <li class="myshop-proinfobox">
+                <a href="http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/926.html" target="_black" style="color: #666;"></a>
+            </li>
+            <li class="myshop-guige" style="color: #666;">颗粒剂，每袋装15克，15g*10袋</li>
+            <li class="myshop-procom" style="color: #666;"><a href="http://www.xb1y.com/index.php/Home/Goods/user_cart.html#">广西邦琪药业集团</a></li>
+            <li class="myshop-proper">￥<span id="goods_price">0.10</span></li>
+            <li class="myshopcar-num">
+                <div class="num-add-jian">
+                    <a href="javascript:void(0);" onclick="reduce(this)">-</a>
+                    <input type="text" name="goods_num[]" id="num" value="1">
+                    <a href="javascript:void(0);" onclick="plus(this)">+</a>
+                </div>
+            </li>
+            <li class="myshopcar-count" style="color: #fe1b1b;font-weight: bold;">￥<span id="price">0.1</span></li>
+            <li class="myshop-itemlist">
+                <a href="javascript:void(0);" onclick="del_cart(this,926)">删除</a>
+                <a href="javascript:void(0);">收藏</a>
+            </li>
+        </ul>
+    </div>	    <ul class="myshopcar-topbox" style="margin:20px 0;">
+
+        <li class="myshopcar-choise">
+            <input type="checkbox" class="chose-all" name="" onclick="changeState(this.checked)">全选
+        </li>
+
+        <li class="myshop-proinfobox" style="width: 100px"><a href="http://www.xb1y.com/index.php/Home/Goods/user_cart.html#">删除</a></li>
+        <li class="myshop-guige"><a href="http://www.xb1y.com/index.php/Home/Goods/user_cart.html#">加入收藏夹</a></li>
+        <li class="myshop-procom"><a href="http://www.xb1y.com/index.php/Home/Goods/user_cart.html#">继续购物</a></li>
+        <li class="myshop-proper" style="width: 200px;">已选商品：<span style="color: #ff1c1c;padding:0 10px;font-weight: bold" id="count">0</span>件</li>
+        <li class="myshop-discount" style="width: 280px">合计(不含运费)：<span style="color: #ff1c1c;padding:0 10px;font-weight: bold;font-size: 16px">￥<span id="total">0.00</span></span></li>
+        <li class="myshop-money"><a href="javascript:void(0);" id="bill">结算</a></li>
+    </ul>
+	</form>
+</div>
+ <!--全选-->
+    <script language="JavaScript" type="text/javascript">
+        function changeState(isChecked)
+        {
+            var chk_list=document.getElementsByTagName("input");
+            for(var i=0;i<chk_list.length;i++)
+            {
+                if(chk_list[i].type=="checkbox")
+                {
+                    chk_list[i].checked=isChecked;
+                }
+				if(chk_list[i].name=="goods_id[]"){
+				      getPrice(chk_list[i]);
+					 
+				  }
+            }
+			
+			
+        }
+        function changeState02(isChecked)
+        {
+            var chk_list=document.getElementsByTagName("input");
+			var  num="";  
+            for(var i=0;i<chk_list.length;i++)
+            {
+                if(chk_list[i].type=="checkbox")
+                {    
+                    chk_list[i].checked=isChecked;
+                }
+				
+				  if(chk_list[i].name=="goods_id[]"){
+				      getPrice(chk_list[i]);
+					 
+				  }
+				
+				}
+			
+			
+        }
+    </script>
+
+<script>
+  //数量增加操作
+  function plus(e){
+	var mm = $(e).parent().parent().parent();
+	var price = mm.find("#goods_price").text();
+	
+	if(mm.find("#num").val()==''){
+		mm.find("#num").val(1);
+    	return false;
+     }
+	mm.find("#num").val(parseInt(mm.find("#num").val())+1);
+	mm.find("#price").text((price*mm.find("#num").val()).toFixed(2));
+	//当前商品被选择
+	if(mm.find("input[type='checkbox']").is(':checked')){
+		$('#total').text((($('#total').text()*100+price*100)/100).toFixed(2));
+	}
+  }
+  //数量减少操作
+  function reduce(e){
+	var mm = $(e).parent().parent().parent();
+	var price = mm.find("#goods_price").text();
+	
+  	if(mm.find("#num").val()==''){
+  		mm.find("#num").val(1);
+       	$('#price').val();
+       	return false;
+    }
+    if (mm.find("#num").val()==1){
+        $('#min').attr('disabled',true);
+        return false;
+    }
+    mm.find("#num").val(parseInt(mm.find("#num").val())-1);
+    mm.find("#price").text((price*mm.find("#num").val()).toFixed(2));
+    //当前商品被选择
+    if(mm.find("input[type='checkbox']").is(':checked')){
+    	$('#total').text((($('#total').text()*100-price*100)/100).toFixed(2));
+	}
+  }
+  //删除商品
+  function del_cart(e,num){
+	  if(num == '' || num == 'NaN'){
+		  layer.msg('数据有误，请刷新重试');
+		  return false;
+	  }
+	  var mm = $(e).parent().parent().parent();
+	  $.post("/index.php/Home/Goods/del_cart.html", {id:num}, 
+				function (data) {
+				data = eval("("+data+")");
+				if(data.status){
+					//删除成功
+					if(mm.find("input[type='checkbox']").is(':checked')){
+						 $('#count').text(parseInt($('#count').text())-1);
+						 $('#total').text((($('#total').text()*100-mm.find("#goods_price").text()*100*mm.find("#num").val())/100).toFixed(2));
+					  }
+					  mm.empty();
+				}else{
+					//删除失败
+					layer.msg(data.msg);
+				}
+			});
+  }
+  //总价 总数设置 用于结算
+  function getPrice(e){   
+             //console.log(e);
+	  var num = parseInt($('#count').text());
+	  var mm = $(e).parent().parent();
+	  var check = mm.find("input[type='checkbox']").is(':checked');
+	  var price = mm.find("#price").text();
+	     
+	   
+	  if(check){
+		  //选中
+		  $('#total').text((($('#total').text()*100+price*100)/100).toFixed(2));
+		  $('#count').text(num+1);
+	  }else{
+		  //取消选中或未选中
+		  $('#total').text(($('#total').text()-price).toFixed(2));
+		  $('#count').text(num-1);
+	  }
+  }
+  //结账
+  $('#bill').click(function(){
+	  var name;
+	  $(':checked').each(function() {
+		  name = $(this).attr('name');
+		});
+	  if(name==null){
+		  layer.alert('请选择要购买的商品');
+		  return false;
+	  }
+	  $('#form_id').submit();
+	  /*
+	  $.post("/index.php/Home/Goods/user_cart2.html",$('#form_id').serialize(),function(data){
+		  //data = eval("("+data+")");
+		  console.log(data);
+		  if(data.status==1){
+			  window.location.href=data.url;
+		  }else{
+			  layer.alert(data.msg);
+		  }
+	  });
+	  */
+	  
+  });
+</script>
+
+    </section>
+</div>
+
+</div>
+    <!--底部内容-->
+<div class="footer-box">
+    <div class="footer-link" style="height:215px;">
+         <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">采购指南  </li>
+			
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/shrz.html">商户入驻</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/dllc.html">代理流程</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/mjgmlc.html">购买流程</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px; border-bottom:1.5px solid #fff">支付方式 </li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/zxzf.html">在线支付</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">配送服务 </li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/smzt.html">上门自提</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/xsps.html">限时配送</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/psfwcx.html">配送服务查询</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">售后服务 </li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/thgz.html">退货规则</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/thlc.html">退货流程</a></li>
+        </ul> 
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">商家合作</li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/qycg.html">企业采购</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/xs.html">销售</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/dlr.html">代理人</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">关于我们</li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/lxwm.html">联系我们</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/qyjj.html">企业简介</a></li>
+        </ul>
+		<ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">帮助中心</li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/mmzh.html">密码找回</a></li>
+            <li><a href="http://www.xb1y.com/index.php/Home/Index/helpCenter/flag/mmxg.html">密码修改</a></li>
+			<li><a href="http://www.xb1y.com/index.php/Home/Index/liuyan.html">意见与反馈</a></li>
+        </ul>
+        <div class="erweima-box">
+            <img src="./我的购物车_files/erweima_03.png">
+            <p>扫描关注，微信二维码</p>
+        </div>
+    </div>
+    <div style="padding:15px;font-size:15px;text-align: center;color:#fff">备案号；陕ICP备18007246号-1</div>
+</div>
+<div class="footer-bottom">
+    <p>Copyright ©   西北医药网版权所有</p>
+</div>
+<script>
+    $(function(){
+        $.ajax({
+            'url':"/index.php/Home/AjaxMessage/index.html",
+            type:'get',
+            dataType:'json',
+            success:function(data){
+                if(data.status==1) {
+                    if(data.type===1){
+                    	layer.msg(data.message,{icon:1});
+                    }else{
+                    	layer.alert(data.message,{icon:2});
+                    }
+                }
+            }
+        })
+    })
+
+</script>
+
+</body></html>

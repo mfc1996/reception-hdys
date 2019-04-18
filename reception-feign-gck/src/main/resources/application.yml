@@ -13,4 +13,4 @@ spring:
       content-type: text/html
 feign:
   hystrix:
-    enabled: true
+    enabled: false

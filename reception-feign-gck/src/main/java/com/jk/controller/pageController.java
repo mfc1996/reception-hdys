@@ -12,7 +12,7 @@ package com.jk.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -26,8 +26,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class pageController {
 
-    @GetMapping(value = "/zixun")
-    public String zixun() {
-        return "zixun";
+    @RequestMapping("chenkaidata")
+    public String chenkaidata() {
+
+        return "chenkaiData";
     }
+
+
+    @RequestMapping("mycar")
+    public String mycars() {
+
+        return "Mycar";
+    }
+
 }
