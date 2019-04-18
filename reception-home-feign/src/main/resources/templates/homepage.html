@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)http://www.xb1y.com/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>韩都衣舍🙌</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+<link rel="stylesheet" href="../css/common.css"/>
+<link rel="stylesheet" href="../css/css.css"/>
+<script src="../bootstrap/jquery.min.js"></script>
+<script src="../js/jQuery-2.2.0.min.js"></script>
+<script src="../js/layer.js"></script>
+<link rel="stylesheet" href="../css/layer.css" id="layui_layer_skinlayercss" style=""/>
+<link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+
+<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var Lis = document.getElementsByTagName("li");
+        for (i = 0; i < Lis.length; i++) {
+            Lis[i].onmouseover = function () {
+                this.className = "lihover";
+            }
+
+            Lis[i].onmouseout = function () {
+                this.className = "";
+            }
+        }
+
+    }
+</script>
+
+    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" id="app">
+<div class="wrapper">
+    <header class="main-header">
+<div class="logotop">
+    <div class="logotop-bar">
+        <div class="logotop-lf">
+            Hi,欢迎来到韩都衣舍遇见心动❤
+            <span>
+                【
+                <a href="#" style="color: #e57816;">请先登录</a>
+                |
+                <a href="#">注册</a>
+                                】
+            </span>
+        </div>
+        <ul class="logotop-rt">
+            <li>服务热线：400-0097-600</li>
+            <li><a href="#">我的订单 </a></li>
+            <li><a href="#">我的购物车</a></li>
+            <li><a href="#">帮助中心</a></li>
+            <li><a href="#">收藏网站</a></li>
+        </ul>
+    </div>
+</div>
+<!--logo栏目-->
+<div class="logobox" style="overflow:initial;height:120px;">
+    <div class="logoimg">
+        <a href="#">
+            <img src="../image/title.png" height="100" width="300"/><br>
+            没空去韩国？就来韩都衣舍！
+        </a>
+    </div>
+    <div class="logobox-rt" style="overflow:initial">
+        <form action="#" method="get">
+            <div class="search-box" style="overflow:initial">
+                <input type="text" class="ss-input" name="key" value="" placeholder="请输入关键字进行搜索">
+                <button type="submit">搜索</button>
+				<div class="input-xlbox" id="zhaode">
+					
+						
+					
+				</div>
+            </div>
+        </form>
+		<script>
+			
+			$("body").on("input propertychange",".ss-input",function(){
+				 var name=$(".ss-input").val();
+				  // alert(name);
+				   $.ajax({
+						type:'post',
+						url:"/index.php/Home/Index/see.html",
+						data:{'name':name},
+						success:function(data){
+							if(data.state=='1'){
+								var html="";
+								//console.log(data.temp)
+								for(var i=0;i<data.temp.length;i++){
+									html +="<div class='xl-list' inclick>"+data.temp[i].goods_name +"</div>";
+								}
+								
+							   $("#zhaode").html(html);
+								
+							}
+						}
+					});
+				
+			}) 
+			var text22 = '';
+			$("#zhaode").on('mouseover',"div", function(){
+				 text22 = $(this).html()
+			    //$('.ss-input').val()
+			})
+			$('.ss-input').focus(function(){
+				$('.input-xlbox').show();
+				$('.input-xlbox').css('zIndex','999');
+				$('.input-xlbox').css('opacity','1');
+			});
+			$('.ss-input').blur(function(){
+				$('.input-xlbox').css('zIndex','-1');
+				$('.input-xlbox').css('opacity','0');
+				$(this).val(text22)
+			});
+			
+		</script>
+		<style>
+		.input-xlbox{position: absolute;width:350px;top:41px;left:-1px;background:#fff;border:1px solid #ff912f;display:none;}
+		.xl-list{width:100%;padding:5px;box-sizing:border-box;}
+		.xl-list:hover{background:#f2f2f2}
+		</style>
+        <div style="float:right;">
+					
+			  <a href="#" class="drug-register">
+                <img src="../image/index_06.png"> 商品短缺登记
+            </a>
+			
+		             <a href="#" class="myshopping">
+                <img src="../image/index_08.png">
+                我的购物车
+            </a> 
+        </div> 
+    </div>
+</div>
+<!--导航-->
+<div class="navbar">
+    <div class="navbox">
+        <h3>商品分类</h3>
+        <ul class="navbar-list">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">T恤</a></li>
+            <li><a href="#">裙装</a></li>
+            <li><a href="#">裤装</a></li>
+            <li><a href="#">秒杀商品</a></li>
+            <li><a href="#">会员制度</a></li>
+            <li><a href="#">活动专区</a></li>
+        </ul>
+    </div>
+</div>
+</header>
+<div class="xb-rightbox">
+	<a href="#">
+		<div class="xb-right_list">
+			<img alt="" src="../image/gr.png">
+			我的
+		</div>
+	</a>
+	 <a href="#">
+		<div class="xb-right_list">
+			<img alt="" src="../image/dd.png">
+			订单
+		</div>
+	</a>
+	<a href="#">
+		<div class="xb-right_list">
+			<img alt="" src="../image/gwc.png">
+			购物车
+	
+		</div>
+	</a>
+	<a href="#">
+		<div class="xb-right_list">
+			<img alt="" src="../image/tw.png">
+			帮助
+		</div>
+	</a>
+	<a href="#">
+		<div class="xb-right_list">
+			<img alt="" src="../image/sc.png">
+			收藏
+		</div>
+	</a>
+</div>
+<style>
+.xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #CAFF70;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
+.xb-right_list{color:#fff;margin-top:50px;}
+.xb-right_list img{width:36px;}
+.xb-qq{margin:5px auto;width:20px;height:20px;border-radius:50%;background:#ff5a00;line-height:20px;font-size:12px;}
+</style>
+    <div class="content-wrapper">
+    <section class="content-header">
+        
+
+    </section>
+    <section class="content">
+        
+<!--导航轮播图片-->
+<div class="navpic-slider">
+    <ul class="topmenu"></ul>
+    <script type="text/javascript">
+        $(function(){
+            initType(0)
+        })
+
+        function changeClass(pid){
+
+            $("#li"+pid).removeClass("lihover")
+
+        }
+
+        function initTypeTwo(pid){
+            $("#li"+pid).addClass("lihover")
+            //alert($("#first"+pid).text())
+            if($("#first"+pid).text() !=""){
+                return;
+            }
+            $.ajax({
+                url:'http://192.168.23.1:8081/queryType',
+                type:'get',
+                data:{pid:pid},
+                dataType:'json',
+                success:function(data){
+                    //alert(data)
+                    var html="";
+                    for(var i=0;i<data.length;i++){
+                        var list = data[i].nodes
+                        html+='<dl>'+
+                            '<dt><a href="http://192.168.101.134:8092/webReview/toMain?secondCatalog='+data[i].id+'" target="_self" onclick="window.onload()" >'+data[i].text+'</a></dt>'+
+                            '<dd>';
+                        if( list != null){
+                            for(var j=0;j < list.length;j++){
+                                html+='<a href="http://192.168.101.134:8092/webReview/toMain?thirdCatalog='+list[j].id+'" target="_self" onclick="window.onload()">'+list[j].text+'</a>';
+                            }
+                        }
+                        html+="</dd></dl>";
+                    }
+                    $("#first"+pid).html(html)
+                }
+            })
+        }
+        function initType(pid){
+            $.ajax({
+                url:'http://192.168.0.144:8081/queryType',
+                type:'get',
+                data:{pid:pid},
+                dataType:'json',
+                success:function(data){
+                    var html="";
+                    for(var i=0;i<data.length;i++){
+                        html+='<li  id="li'+data[i].id+'" onmouseover="initTypeTwo('+data[i].id+')" onmouseout="changeClass('+data[i].id+')">' +
+                            '<a  href="http://192.168.101.134:8092/webReview/toMain?firstCatalog='+data[i].id+'" target="_self" onclick="window.onload()"  >'+data[i].text+'<span style="margin-left:20px">&gt;</span></a>'+
+                            '<div class="submenu">'+
+                            '<div class="leftdiv" id="first'+data[i].id+'">'+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                    }
+                    $(".topmenu").html(html)
+                }
+            })
+        }
+        function assignFirst(id){
+            $("#firstCatalog").val(id);
+            $("#secondCatalog").val('');
+            $("#thirdCatalog").val('')
+        }
+
+        function firstCatalog(id){
+            assignFirst(id)
+            $("#li"+id).removeClass("lihover")
+            $("#myiframe").attr("src","../webReview/toDetail")
+        }
+
+
+        function assignSecond(id){
+            $("#firstCatalog").val('')
+            $("#secondCatalog").val(id)
+            $("#thirdCatalog").val('')
+
+        };
+
+        function secondCatalog(id){
+            assignSecond(id)
+            $("#li"+id).removeClass("lihover")
+            $("#myiframe").attr("src","../webReview/toDetail")
+        }
+
+        function assignThird(id){
+            $("#firstCatalog").val('')
+            $("#secondCatalog").val('')
+            $("#thirdCatalog").val(id)
+        };
+        function thirdCatalog(id){
+            assignThird(id)
+            $("#li"+id).removeClass("lihover")
+
+            $("#myiframe").attr("src","../webReview/toDetail")
+        }
+
+
+    </script>
+
+    <!--轮播图-->
+    <div class="pic-slider">
+        <div id="slideBox" class="slideBox">
+            <div class="hd">
+                <ul>
+                    <li class="">1</li><li class="on">2</li><li class="">3</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <li style="display: none;"><a href="javascript:void(0)" target="_blank"><img src="../image/lun1.jpg"></a></li>
+                    <li style="display: list-item;"><a href="javascript:void(0)" target="_blank"><img src="../image/lun2.jpg"></a></li>
+                    <li style="display: none;" class=""><a href="javascript:void(0)" target="_blank"><img src="../image/lun3.jpg"></a></li>
+                </ul>
+            </div>
+
+
+            &lt;!&ndash; 下面是前/后按钮代码，如果不需要删除即可 &ndash;&gt;
+            <a class="prev" href="javascript:void(0)"></a>
+            <a class="next" href="javascript:void(0)"></a>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+        </script>
+
+    </div>
+    </div>
+    <div class="navpic-rt">
+         <ul class="navpicrt-top">
+             <li>
+                 <img src="../image/index_14.png">
+                 <p>权威荣誉</p>
+             </li>
+             <li>
+                 <img src="../image/index_16.png">
+                 <p>品牌授权</p>
+             </li>
+             <li>
+                 <img src="../image/index_18.png">
+                 <p>正品保险</p>
+             </li>
+             <li>
+                 <img src="../image/index_24.png">
+                 <p>网店认证</p>
+             </li>
+             <li>
+                 <img src="../image/index_26.png">
+                 <p>退货无忧</p>
+             </li>
+             <li>
+                 <img src="../image/index_27.png">
+                 <p>隐私包装</p>
+             </li>
+         </ul>
+        <p class="navpicrt-tel">400-0097-600</p>
+         <p class="fastshop">
+					<a href="http://www.xb1y.com/index.php/Home/Index/shopping.html" style="color: #ffffff;">快速采购</a> 
+					</p>
+        <div class="navpicrt-signin">
+        	              <p>用户登录     |  注册</p>
+              <ul>
+                  <li><a href="http://www.xb1y.com/index.php/Home/Member/Member_login.html">登录</a></li>
+                  <li><a href="http://www.xb1y.com/index.php/Home/Member/Member_register.html" style="background-color:#CAFF70;">注册</a></li>
+              </ul>        </div>
+    </div>
+<!--限时秒杀栏目-->
+<div class="xianshimiaosha">
+     <div class="picScroll-left">
+        <h4>今日限时秒杀</h4>
+        <p style="float:left;margin-top: 10px"><span id="times"><span style="color:red">抢购已结束</span></span></p>
+        <script>
+            function fresh()
+            {
+                var endtime=new Date("2019-04-16 15:00:00");
+                var nowtime = new Date();
+                var leftsecond=parseInt((endtime.getTime()-nowtime.getTime())/1000);
+                d=parseInt(leftsecond/3600/24);
+                h=parseInt((leftsecond/3600)%24);
+                m=parseInt((leftsecond/60)%60);
+                s=parseInt(leftsecond%60);
+                
+                document.getElementById("times").innerHTML="限时"+h+"小时"+m+"分"+s+"秒";
+                if(leftsecond<=0){
+                    document.getElementById("times").innerHTML="<span style='color:red'>抢购已结束</span>";
+                    clearInterval(sh);
+                }
+            }
+            fresh();
+            var sh;
+            sh=setInterval(fresh,1000);
+        </script>
+
+        <a href="http://www.xb1y.com/index.php/Home/Activityzone/ActivityInfo/act/1.html" class="xiaqiyugao" target="_blank">下期预告&gt;</a>
+        <div class="hd">
+            <a class="next"></a>
+            <a class="prev"></a>
+        </div>
+
+        <div class="bd">
+            <ul class="picList">
+            	            </ul>
+        </div>
+    </div> 
+</div>
+
+
+ <script type="text/javascript">
+    jQuery(".picScroll-left").slide({
+    	titCell:".hd ul",
+    	mainCell:".bd ul",
+    	autoPage:true,
+    	effect:"left",
+        autoPlay:true,
+        scroll:6,
+        vis:6,//每次显示数量
+        mouseOverStop:false
+    });
+</script>
+
+<!--首页中间广告位的广告栏目--的广告栏目-->
+ <div class="small-pic">
+   <div class="smallpic-slider">
+       <a href="#">
+           <img src="../image/heng.jpg" height="800px" width="1920px"/>
+       </a>
+	</div>
+</div> 
+<!--中间的内容-->
+<div class="index-container" id="001">
+    <div class="newsfabu-title">
+        <h3>最新发布的商品</h3>
+        <a href="#">更多&gt;&gt;</a>
+    </div>
+    <!--tab切换-->
+	<style type="text/css">
+        /* box */
+        .box{width:1200px;background:#fff;}
+
+        .tab_menu{overflow:hidden;}
+
+        .tab_menu li{width:240px;float:left;color:#fff;background:#093;cursor:pointer;
+                        line-height: 50px;height: 50px;margin:10px 30px 0 30px;
+                         text-indent: 20px;
+        }
+        .tab_menu li img{
+            float: left;
+            margin-top: 5px;
+            margin-left: 50px;
+        }
+
+        .tab_menu li a{color:#fff;text-decoration:none;}
+
+        .tab_menu li.current a{color:#333;}
+
+
+        .tab_box .hide{display:none;}
+        .news-index-pricestyle{
+            width: 90%!important;
+            margin: 0 auto;
+            background-color: #fff;
+            overflow: hidden;
+            color: #d81b24;
+            margin-top: 5px;
+        }
+        .news-pricestyle-right{
+            float: right;
+            color: #666666;
+            text-decoration: line-through;
+            font-style: normal;
+            font-weight: normal;
+            padding-right: 8px;
+        }
+        .active-addcars{
+            display: block;
+            width: 90%!important;
+            margin: 10px 5%;
+            line-height: 36px;
+            color: #ffffff;
+            background:#fd0539 url("../image/index_08.png") no-repeat 40px center;
+        }
+		.changebg-04style li{
+			background-color: #ffeee0!important;
+		}
+
+    </style>
+	<div class="box demo2">
+
+        <ul class="tab_menu">
+            <li style="background-color:#0cde42;" onclick="assignFistCatalog(1)" ><img src="../image/tebiea.png">特别推荐</li>
+            <li style="background-color:#ff9642;" onclick="assignFistCatalog(2)" ><img src="../image/shangyia.png">上装</li>
+            <li style="background-color:#ff307c;" onclick="assignFistCatalog(3)" ><img src="../image/xiayia.png">下装</li>
+            <li style="background-color:#117cda;" onclick="assignFistCatalog(4)"><img src="../image/qunzia.png">裙装/套装/家居服</li>
+        </ul>
+        <input type="hidden" id="firstCatalog" value="1" />
+        <div class="tab_box">
+
+            <div>
+                <div class="shoppic-box">
+                    <div class="shop-piclf">
+                        <ul class="goods-box" id="product">
+                        </ul>
+						<ul class="tab_menu">
+                            <li style="background-color:#0cde42;" onclick="assignFistCatalog(1)" ><img src="../image/tebiea.png">情侣款</li>
+                            <li style="background-color:#ff9642;" onclick="assignFistCatalog(2)" ><img src="../image/shangyia.png">休闲款</li>
+                            <li style="background-color:#ff307c;" onclick="assignFistCatalog(3)" ><img src="../image/xiayia.png">时尚款</li>
+                            <li style="background-color:#117cda;" onclick="assignFistCatalog(4)"><img src="../image/qunzia.png">超仙的风</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            initProduct();
+        })
+        function initProduct(){
+            $.ajax({
+                url:'http://192.168.0.144:8081/queryProduct',
+                type:'get',
+                data:{},
+                async:false,
+                dataType:'json',
+                success:function(data){
+                   var data = eval(data);
+
+                    var ppp = "";
+                    for (var c=0;c<data.length;c++){
+                        var productImg = data[c].productImg;
+                        var productName = data[c].productName;
+                        var productSize = data[c].productSize;
+                        var productPrice = data[c].productPrice;
+                        var productColor = data[c].productColor;
+                        var typeId = data[c].typeId;
+                        ppp +="<li class=\"cp-list\" style=\"position:relative\">" +
+                            "            <a href=\"#\" target=\"_blank\">" +
+                            "            <img src='"+productImg+"'>" +
+                            "            <h3>"+productName+"</h3>" +
+                            "        <span style=\"text-indent: 10px;\">尺码："+productSize+"</span>" +
+                            "        <h3 class=\"news-index-pricestyle\" style=\"text-indent: 0\">价格："+productPrice+"</h3> " +
+                            "        </a><a href=\"javascript:void(0);\" onclick=\"add_cart(908)\" class=\"active-addcars\">" +
+                            "        加入购物车" +
+                            "        </a> " +
+                            "        <div class=\"cp-show\" style=\"position:absolute;width:100%;height:235px;;left:0;top:0;z-index:-1;background-color:rgba(51,57,57,0.8);padding:25px 10px;color:#fff;box-sizing:border-box\">" +
+                            "            <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap\">" +
+                            "            <span style=\"float:left;width:80px;text-align:right\">功能：</span>" +
+                            "        <span style=\"float:left;width:120px;\">​"+productColor+"</span>" +
+                            "        </p>" +
+                            "        <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap\">" +
+                            "            <span style=\"float:left;width:80px;text-align:right\">尺码：</span>" +
+                            "        <span style=\"float:left;width:120px;\">"+productSize+"</span>" +
+                            "        </p>\n" +
+                            "        <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap\">" +
+                            "            <span style=\"float:left;width:80px;text-align:right\">产品类型：</span>\n" +
+                            "        <span style=\"float:left;width:120px;\">"+typeId+"</span>" +
+                            "            </p>" +
+                            "            <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap;position:absolute;right:20px;bottom:10px;\">" +
+                            "            <a style=\" float:left;width:100%;text-align:right;color:#fff;padding:3px 0;margin-top:2px;\" href=\"http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/908.html\" target=\"_blank\">查看详情 &gt;</a>" +
+                            "            </p>" +
+                            "            </div>" +
+                            "            </li>";
+                    }
+                    $("#product").html(ppp);
+                }
+            })
+        }
+    </script>
+    <!--相关企业-->
+    <div class="link-index" style="margin-top: 20px;">
+        <h3>
+            相关店铺
+        </h3>
+        <ul class="index-linka" id="store">
+
+<style>
+.xg-list{width:300px;height:80px;background: #f9f9f9;border:1px solid #e5e5e5;box-sizing: border-box;padding:12.5px 10px;}
+.xg-img{width:125px;height:55px;float:left;}
+.xg-img img{width:100%;height:100%;display: block;}
+.xg-right{width:135px;height:55px;float:right;}
+.xg-righttitle{font-size:#333333;font-size:16px;}
+.xg-rightbtn{width:105px;height:20px;background: #CAFF70;color:#fff;line-height: 20px;text-align: center;margin-top:10px;}
+</style>
+			
+        </ul>
+        <script>
+            $(function(){
+                initStore();
+            })
+            function initStore(){
+                $.ajax({
+                    url:'http://192.168.0.144:8081/queryStore',
+                    type:'get',
+                    data:{},
+                    async:false,
+                    dataType:'json',
+                    success:function(data){
+                        var data = eval(data);
+                        var hhh = "";
+                        for (var b=0;b<data.length;b++){
+                            var img = data[b].storeImg;
+                            var name = data[b].storeName;
+                            hhh +="<li>" +
+                               "<div class=\"xg-list\">" +
+                               "<div class=\"xg-img\">" +
+                               "<img src="+img+">" +
+                               "</div>\n" +
+                               "<div class=\"xg-right\">" +
+                               "<p class=\"xg-righttitle\">"+name+"</p>" +
+                               "<a href=\"#\"><div class=\"xg-rightbtn\">进入店铺&nbsp; &gt;</div></a>" +
+                               "</div>" +
+                               "</div>" +
+                               "</li>";
+                        }
+                        $("#store").html(hhh);
+                    }
+                })
+            }
+        </script>
+    </div>
+    <!--相关链接-->
+    <div class="link-index">
+        <h3>相关链接</h3>
+        <ul class="index-linka">
+        	<li>
+				<a href="#" target="_black">
+                    <img src="../image/1511839956lysP2juO.png" alt="英盛网">
+                </a>
+            </li><li>
+				<a href="http://re.1688.com/" target="_black">
+                    <img src="../image/14839547841U0VLueN.jpg" alt="阿里巴巴">
+                </a>
+            </li><li>
+				<a href="#" target="_black">
+                    <img src="./image/1483954777wXACMxaJ.jpg" alt="京东">
+                </a>
+            </li><li>
+				<a href="#" target="_black">
+                    <img src="../image/1484214402bZHS723h.jpg" alt="腾讯">
+                </a>
+            </li><li>
+				<a href="#" target="_black">
+                    <img src="../image/1483954559VVhb0c45.jpg" alt="新浪">
+                </a>
+            </li><li>
+				<a href="#" target="_black">
+                    <img src="../image/1483954520FnOeJiNT.jpg" alt="网易">
+                </a>
+            </li><li>
+				<a href="#" target="_black">
+                    <img src="../image/1483954370jTbPfgVf.png" alt="搜狐">
+                </a>
+            </li><li>
+				<a href="#" target="_black">
+                    <img src="../image/14839542986RcsR2tP.jpg" alt="百度">
+                </a>
+            </li>        </ul>
+    </div>
+</div>
+<a hidden="hidden" href="#" name="a79eb15536cc0167fc792973c4d3ddba">360网站安全检测平台</a>
+
+        
+<script src="../js/jquery.tabs.js"></script>
+<script src="../js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("img[original]").lazyload({ placeholder:"images/color3.gif" });
+        $('.demo2').Tabs({
+            event:'click'
+        });
+        //部分区域图片延迟加载
+        function lazyloadForPart(container) {
+            container.find('img').each(function () {
+                var original = $(this).attr("original");
+                if (original) {
+                    $(this).attr('src', original).removeAttr('original');
+                }
+            });
+        }
+    });
+	function add_cart(id){
+		$.post("/index.php/Home/Goods/add_cart.html", {id:id,num:1}, 
+			function (data) {
+			data = eval("("+data+")");
+			if(data.status){
+				layer.msg(data.msg, {icon: 1});
+				//按钮不可用 更改颜色、value
+			}else{
+				layer.alert(data.msg);
+			}
+		});
+	}
+	$('.cp-list').hover(function(){
+		$(this).find($('.cp-show')).css('zIndex',2)
+	},function(){
+		$(this).find($('.cp-show')).css('zIndex',-2)
+	})
+</script>
+
+    </section>
+</div>
+
+</div>
+    <!--底部内容-->
+<div class="footer-box">
+    <div class="footer-link" style="height:215px;">
+         <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">购物指南  </li>
+
+            <li><a href="#">免费注册</a></li>
+            <li><a href="#">开通支付宝</a></li>
+            <li><a href="#">支付宝充值</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px; border-bottom:1.5px solid #fff">支付方式 </li>
+            <li><a href="#">快捷支付</a></li>
+            <li><a href="#">信用卡</a></li>
+            <li><a href="#">余额宝</a></li>
+            <li><a href="#">蚂蚁花呗</a></li>
+            <li><a href="#">货到付款</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">配送服务 </li>
+            <li><a href="#">上门自提</a></li>
+            <li><a href="#">限时配送</a></li>
+            <li><a href="#">配送服务查询</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">售后服务 </li>
+            <li><a href="#">退货规则</a></li>
+            <li><a href="#">退货流程</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">关于我们</li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">店铺简介</a></li>
+        </ul>
+		<ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">帮助中心</li>
+            <li><a href="#">密码找回</a></li>
+            <li><a href="#">密码修改</a></li>
+			<li><a href="#">意见与反馈</a></li>
+        </ul>
+        <div class="erweima-box">
+            <img src="../image/erweima.png">
+            <p>扫描关注，微信二维码</p>
+        </div>
+    </div>
+    <div style="padding:15px;font-size:15px;text-align: center;color:#fff"><img src="../image/jingca.png">浙公网安备 33010002000120号</div>
+</div>
+<script>
+    $(function(){
+        $.ajax({
+            'url':"/index.php/Home/AjaxMessage/index.html",
+            type:'get',
+            dataType:'json',
+            success:function(data){
+                if(data.status==1) {
+                    if(data.type===1){
+                    	layer.msg(data.message,{icon:1});
+                    }else{
+                    	layer.alert(data.message,{icon:2});
+                    }
+                }
+            }
+        })
+    })
+
+</script>
+
+</body></html>
