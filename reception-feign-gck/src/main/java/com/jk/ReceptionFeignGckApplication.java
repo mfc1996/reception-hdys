@@ -14,6 +14,7 @@ public class ReceptionFeignGckApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ReceptionFeignGckApplication.class, args);
+
     }
 
 }
