@@ -18,4 +18,8 @@ public interface chanpinService {
     @GetMapping("queryProduct")
     @ResponseBody
     List<chanpinBean> queryProduct();
+
+    @GetMapping("selectCar")
+    @ResponseBody
+    chanpinBean selectCar(@RequestParam("spid")Integer spid);
 }

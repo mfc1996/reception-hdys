@@ -41,6 +41,26 @@ public class chanpinBean implements Serializable {
     private      String    addressId;
     private    Integer     proDealCount;
 
+    private String  img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    private Integer acount;//数量
+
+    public Integer getAcount() {
+        return acount;
+    }
+
+    public void setAcount(Integer acount) {
+        this.acount = acount;
+    }
+
     private  String productImg;
 
     public String getProductImg() {

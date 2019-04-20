@@ -55,33 +55,7 @@
     </ul>
     <form method="post" action="http://www.xb1y.com/index.php/Home/Goods/user_cart2.html" id="form_id">
     <div class="myshoppro-list">
-        <ul class="myshop-pro-information">
-            <li class="myshopcar-choise">
-                <input type="checkbox" name="goods_id[]" onclick="getPrice(this)" value="926" style="margin: 30px 10px 0 20px;float: left;">
-                <input type="hidden" name="goods_act[]" value="">
-                <a href="http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/926.html" target="_black" class="myshop-pro-img">
-                    <img src="./我的购物车_files/1541667516E2DUUslk.png">
-                </a>
-            </li>
-            <li class="myshop-proinfobox">
-                <a href="http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/926.html" target="_black" style="color: #666;"></a>
-            </li>
-            <li class="myshop-guige" style="color: #666;">颗粒剂，每袋装15克，15g*10袋</li>
-            <li class="myshop-procom" style="color: #666;"><a href="http://www.xb1y.com/index.php/Home/Goods/user_cart.html#">广西邦琪药业集团</a></li>
-            <li class="myshop-proper">￥<span id="goods_price">0.10</span></li>
-            <li class="myshopcar-num">
-                <div class="num-add-jian">
-                    <a href="javascript:void(0);" onclick="reduce(this)">-</a>
-                    <input type="text" name="goods_num[]" id="num" value="1">
-                    <a href="javascript:void(0);" onclick="plus(this)">+</a>
-                </div>
-            </li>
-            <li class="myshopcar-count" style="color: #fe1b1b;font-weight: bold;">￥<span id="price">0.1</span></li>
-            <li class="myshop-itemlist">
-                <a href="javascript:void(0);" onclick="del_cart(this,926)">删除</a>
-                <a href="javascript:void(0);">收藏</a>
-            </li>
-        </ul>
+
     </div>	    <ul class="myshopcar-topbox" style="margin:20px 0;">
 
         <li class="myshopcar-choise">
@@ -318,6 +292,56 @@
         })
     })
 
+</script>
+
+<script>
+    $(function(){
+        /*查询购物车*/
+        selectCarAll()
+    })
+    /*查询购物车*/
+    function  selectCarAll() {
+        $.ajax({
+            url:"http://192.168.147.1:8086/selectCarAll",
+            type:"post",
+            dataType:"json",
+            success:function (data) {
+                var  car=data.webDrugBean;
+                var html1="";
+                for (var i=0;i<car.length;i++){
+                    html1+= '<div class="myshoppro-list">\n' +
+                        '        <ul class="myshop-pro-information">\n' +
+                        '            <li class="myshopcar-choise">\n' +
+                        '                <input type="checkbox" name="goods_id[]" onclick="getPrice(this)" value="912" style="margin: 30px 10px 0 20px;float: left;">\n' +
+                        '                <input type="hidden" name="goods_act[]" value="">\n' +
+                        '                <a href="/index.php/Home/Goods/goodInfo/id/912.html" target="_black" class="myshop-pro-img">\n' +
+                        '                    <img src="'+car[i].img+'">\n' +
+                        '                </a>\n' +
+                        '            </li>\n' +
+                        '            <li class="myshop-proinfobox">\n' +
+                        '                <a href="/index.php/Home/Goods/goodInfo/id/912.html" target="_black" style="color: #666;">'+car[i].namee+'</a>\n' +
+                        '            </li>\n' +
+                        '            <li class="myshop-guige" style="color: #666;">'+car[i].productSize+'</li>\n' +
+                        '            <li class="myshop-procom" style="color: #666;"><a href="#">'+car[i].productStockId+'</a></li>\n' +
+                        '            <li class="myshop-proper">￥<span id="goods_price">'+car[i].productPrice+'</span></li>\n' +
+                        '            <li class="myshopcar-num">\n' +
+                        '                <div class="num-add-jian">\n' +
+                        '                    <a href="javascript:void(0);" onclick="reduce(this)">-</a>\n' +
+                        '                    <input type="text" name="goods_num[]" id="num" value="'+car[i].proDealCount+'">\n' +
+                        '                    <a href="javascript:void(0);" onclick="plus(this)">+</a>\n' +
+                        '                </div>\n' +
+                        '            </li>\n' +
+                        '            <li class="myshopcar-count" style="color: #fe1b1b;font-weight: bold;">￥<span id="price">'+(car[i].productPrice*car[i].proDealCount)+'</span></li>\n' +
+                        '            <li class="myshop-itemlist">\n' +
+                        '                <a href="javascript:void(0);" onclick="del_cart(this,912)">删除</a>\n' +
+                        '                <a href="javascript:void(0);">收藏</a>\n' +
+                        '            </li>\n' +
+                        '        </ul>'
+                }
+                $(".myshoppro-list").append(html1)
+            }
+        })
+    }
 </script>
 
 </body></html>

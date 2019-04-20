@@ -11,4 +11,6 @@ public interface chanpinMapper {
     Integer queryChanpinCount();
 
     List<chanpinBean> queryProduct();
+
+    chanpinBean selectCar(Integer spid);
 }

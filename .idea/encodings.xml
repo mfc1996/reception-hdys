@@ -2,8 +2,12 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/reception-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/reception-api/src/main/java/com/jk/model/UserBean.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-api/src/main/java/com/jk/model/WebShoppingcCart.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/java/com/jk/config" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/java/com/jk/controller/MedicalHomeController.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/animate.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/bootstrap.min.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/custom-fonts.css" charset="GBK" />
@@ -16,9 +20,18 @@
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/materialize.min.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/style.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/zoomslider.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/133d5bacd1841241afe650e8a3e660d8.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/3ba4901952ee1242bd937f6f39a39c23.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/4.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/58f9b7d81bd1e.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/a9d3392236ef5e43b5de0246bc326926.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/b0b4ad49dfbe8e4ebcbd7bf1983d1525.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/book" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/dc9cc129d3651446a37034c314e3a7ea.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/eef810e53fd02e4dbee62403625f9038.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/f128273b9bfda046bdd57a864fde1d4f.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/tou" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/images/u=1930340987,1443942196&amp;fm=26&amp;gp=0.jpg" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/img" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js/animate.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js/bootStrap-addTabs" charset="GBK" />
@@ -44,9 +57,11 @@
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js/modernizr.custom.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js/portfolio" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js/quicksand" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js2" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/materialize" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/我的购物车_files" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/templates/Mycar.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/templates/mycar.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/templates/wodecar.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-provider-gck" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reception-provider-gck/src/main/resources/mapper" charset="GBK" />
     <file url="PROJECT" charset="GBK" />

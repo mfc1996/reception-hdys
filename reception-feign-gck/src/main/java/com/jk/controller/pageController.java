@@ -11,7 +11,6 @@
 package com.jk.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -33,10 +32,15 @@ public class pageController {
     }
 
 
-    @RequestMapping("mycar")
+    @RequestMapping("wodecar")
     public String mycars() {
 
-        return "Mycar";
+        return "wodecar";
+    }
+    @RequestMapping("mycar")
+    public String mycar() {
+
+        return "mycar";
     }
 
 }

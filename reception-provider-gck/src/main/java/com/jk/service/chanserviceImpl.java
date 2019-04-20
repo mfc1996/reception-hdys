@@ -12,8 +12,10 @@ package com.jk.service;
 
 import com.jk.mapper.chanpinMapper;
 import com.jk.model.chanpinBean;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
@@ -54,5 +56,12 @@ public class chanserviceImpl implements chanpinService{
     @ResponseBody
     public List<chanpinBean> queryProduct() {
         return cpMapper.queryProduct();
+    }
+
+    @Override
+    @ResponseBody
+    public chanpinBean selectCar(@RequestParam("spid") Integer spid) {
+        chanpinBean cpBean = cpMapper.selectCar(spid);
+        return cpBean;
     }
 }

@@ -5,14 +5,14 @@
     <select id="queryProduct" resultType="com.jk.model.chanpinBean">
         select * from h_product
     </select>
-
-
     <select id="queryChanpinCount" resultType="int">
         select count(*) from h_product
     </select>
-
     <select id="queryChanpinList"  resultType="com.jk.model.chanpinBean">
  select * from h_product
         limit #{start},#{rows}
 </select>
+    <select id="selectCar" resultType="com.jk.model.chanpinBean">
+        select * from h_product t where t.productid=#{spid}
+    </select>
 </mapper>
