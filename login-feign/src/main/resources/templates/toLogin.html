@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <link type="text/css" rel="stylesheet" href="../js/bootstrap3/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="../js/bootstrap-table/bootstrap-table.css"/>
+    <link type="text/css" rel="stylesheet" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+    <script src="../js/bootstrap3/js/bootstrap.js"></script>
+    <script src="../js/bootstrap-bootbox/bootbox.js"></script>
+    <script src="../js/bootstrap-table/bootstrap-table.js"></script>
+    <script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+</head>
+<style>
+        /*#ding{
+             height: 200px;
+        }*/
+        #cen{
+            background-image:url("../js/image/bj.jpg");.
+            background-size:100% 100%;
+            background-attachment:fixed;
+            background-repeat:no-repeat
+        }
+        #loginBlock{
+            margin-top: 40px;
+            background-color: #effff4;
+            height:450px;
+            border-radius:15px;  /*div圆角*/
+        }
+        #logo{
+            background-image:url("../js/image/logo1.jpg");
+            background-size:100% 100%;
+            background-attachment:fixed;
+            background-repeat:no-repeat
+        }
+        #bao{
+            background-image:url("../js/image/bao.jpg");
+            background-size:100% 100%;
+            background-attachment:fixed;
+            background-repeat:no-repeat
+        }
+        #loginFill{
+            margin-top: 50px;
+        }
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="ding">
+            <div class="col-md-12" style="height:70px">
+                <div class="col-md-1" style="margin-top: 5px;height:60px;"></div>
+                <div class="col-md-2" style="margin-top: 5px;height:60px;">
+                    <div class="row" id="logo"></div>
+                </div>
+                <div class="col-md-4" style="margin-top: 5px;height:60px;"></div>
+                <div class="col-md-3" style="margin-top: 5px;height:60px;">
+                    <div class="row" id="bao"></div>
+                </div>
+                <div class="col-md-2" style="margin-top: 5px;height:60px;"></div>
+            </div>
+        </div>
+        <div class="row" id="cen">
+            <div class="col-md-8" style="height:578px"></div>
+            <div class="col-md-3" style="height:578px">
+                    <div class="col-sm-12" id="loginBlock">
+                        <div class="col-md-12" id="loginSwitch">
+                        <ul class="nav nav-pills  nav-justified">
+                            <li role="presentation"><a href="javascript:clickNameLogin()"><font size="3px">个人登录</font></a></li>
+                            <li role="presentation"><a href="javascript:clickPhoneLogin()"><font size="3px">企业登录</font></a></li>
+                        </ul>
+                        </div>
+                    <div class="row" id="loginFill">
+                        <div id='login_box'>
+                        <div class="col-md-12">
+                                <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">用户账号 </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text"  placeholder="用户账号/手机号" id="account">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">用户密码</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="password" placeholder="请输入密码" id="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">
+                                        <a href="javascript:updPassword()">忘记密码</a>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-3 col-md-5 col-md-6">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input type="button" class="form-control btn-default" value="登录" onclick="loginUser()"/>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control btn-default" type="button" value="去注册" onclick="ref()"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        <div id='login_box2'>
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">账号 </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text"  placeholder="用户账号/手机号" id="haccount">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">密码</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="password" placeholder="请输入密码" id="hpassword">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-3 col-md-5 col-md-6">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input type="button" class="form-control btn-default" value="登录" onclick="hlogin()"/>
+                                                </td>
+                                                <!--<td>
+                                                <input class="form-control btn-default" type="button" value="注册" onclick="ref()"/>
+                                                </td>-->
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 col-md-offset-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3" id="disanfang">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img src="../js/image/11qq.jpg" height="20px" width="20px"/><a>QQ</a>|
+                                            </td>
+                                            <td>
+                                                <img src="../js/image/weixin.jpg" height="20px" width="20px"/><a>微信</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-3"></div>
+                                <div class="col-md-3 col-md-offset-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1" style="height:578px"></div>
+        </div>
+        <div class="row" id="di">
+            <div class="col-md-12" style="background-color: #ffffff;height:70px">
+                <div class="col-md-4" style="height:70px"></div>
+                <div class="col-md-5" style="height:70px">
+                    <div style="margin-top: 25px">Copyright 2019-2029 vip.com，All Rights Reserved ICP证：京 B1-20190415</div>
+                </div>
+                <div class="col-md-3" style="height:70px"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        //初始化页面显示账号登录
+        $("#login_box").show();//表示display:block,
+        //初始化页面隐藏手机号登陆
+        $("#login_box2").hide();
+    })
+    //注册
+    function ref(){
+        window.location.href="../page/toRef";
+    }
+    //忘记密码
+    function updPassword(){
+        window.location.href="../page/updPassword";
+    }
+    //个人登录
+    function clickNameLogin(){
+        //点击账号登录，显示账号登录
+        $("#login_box").show();//表示display:block,
+        //点击账号登录，隐藏手机号登录
+        $("#login_box2").hide();
+    }
+    //企业登录
+    function clickPhoneLogin(){
+        //点击手机号登录，显示手机号登录
+        $("#login_box2").show();//表示display:block,
+        //点击手机号登录，隐藏账号登录
+        $("#login_box").hide();
+
+        $("#disanfang").hide();
+    }
+
+    //企业登录
+    function hlogin(){
+        var haccount = $("#haccount").val();
+        var hpassword = $("#hpassword").val();
+        if(haccount == null || haccount == ''){
+            alert("账号不能为空");
+            return;
+        }
+        if(hpassword == null || hpassword == ''){
+            alert("密码不能为空");
+            return;
+        }
+        if((haccount == null || haccount == '')||(hpassword == null || hpassword == '')){
+            return;
+        }
+
+        $.ajax({
+            url:'../qylogin',
+            type:'get',
+            data:{
+                haccount:haccount,
+                hpassword:hpassword
+            },
+            dataType:'json',
+            success:function(data){
+                    if(data.codes != 0){
+                        alert(data.msgs);
+                    }else{
+                        alert("登录成功");
+                        window.location.href="../page/toMain";
+                    }
+            }
+        })
+    }
+    /*//获取验证码
+    function clickPassword(){
+        var userPhone = $("#userPhone").val();
+        alert(userPhone);
+        if(userPhone == null || userPhone == ''){
+            alert("手机号不能为空");
+            return;
+        }
+        $.ajax({
+            url:'../clickPassword',
+            type:'get',
+            data:{userPhone:userPhone},
+            dataType:'json',
+            success:function(data){
+                alert(data);
+                /!*if(data!=null){
+
+                }else{
+                    alert("获取失败");
+                    /!*window.location.href="../page/main";*!/
+                }*!/
+            }
+        })
+    }
+    //手机号登陆
+    function phoneLogin(){
+        var userPhone = $("#userPhone").val();
+        var phonePassword = $("#phonePassword").val();
+        if(userPhone == null || userPhone == ''){
+            alert("手机号不能为空");
+            return;
+        }
+        if(phonePassword == null || phonePassword == ''){
+            alert("验证码不能为空");
+            return;
+        }
+        if((userPhone == null || userPhone == '')||(phonePassword == null || phonePassword == '')){
+            return;
+        }
+
+        $.ajax({
+            url:'../phoneLogin',
+            type:'get',
+            data:{
+                userPhone:userPhone,
+                phonePassword:phonePassword
+            },
+            dataType:'json',
+            success:function(data){
+                if(data.code != 0){
+                    alert(data.msg);
+                }else{
+                    alert("登录成功");
+                    /!*window.location.href="../page/main";*!/
+                }
+            }
+        })
+    }*/
+    //个人账号登录
+    function loginUser() {
+        var account = $("#account").val();
+        var password = $("#password").val();
+        /*var imgcode = $("#imgcode").val();*/
+        if(account == null || account == ''){
+            alert("账号不能为空");
+            return;
+        }
+        if(password == null || password == ''){
+            alert("密码不能为空");
+            return;
+        }
+        /*if(imgcode == null || imgcode == ''){
+            alert("验证码不能为空");
+            return;
+        }*/
+        if((account == null || account == '')||(password == null || password == '')){
+            return;
+        }
+        $.ajax({
+            url:'../toLogin',
+            type:'get',
+            data:{
+                account:account,
+                password:password
+                /*imgcode:imgcode*/
+            },
+            dataType:'json',
+            success:function(data){
+                    if(data.code != 0){
+                        alert(data.msg);
+                    }else{
+                        alert("登录成功");
+                        /*window.location.href="../page/toMain";*/
+                    }
+            }
+        })
+    }
+</script>
+</html>

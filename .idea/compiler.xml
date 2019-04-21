@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="login-feign" />
+        <module name="login-provider" />
         <module name="reception-api" />
         <module name="reception-eureka" />
       </profile>
@@ -13,6 +15,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="login-feign" options="-parameters" />
+      <module name="login-provider" options="-parameters" />
       <module name="reception-eureka" options="-parameters" />
     </option>
   </component>

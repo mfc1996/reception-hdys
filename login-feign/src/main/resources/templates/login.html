@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Insert title here</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <link type="text/css" rel="stylesheet" href="../js/bootstrap3/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="../js/bootstrap-table/bootstrap-table.css"/>
+    <link type="text/css" rel="stylesheet" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+    <script src="../js/bootstrap3/js/bootstrap.js"></script>
+    <script src="../js/bootstrap-bootbox/bootbox.js"></script>
+    <script src="../js/bootstrap-table/bootstrap-table.js"></script>
+    <script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+    <style type="text/css">
+        /*body{
+            background-image:url("../js/image/bj.jpg");
+            !*background-size:100% 100%;*!
+            width:600px;
+            height:500px;
+            background-attachment:fixed;
+            background-repeat:no-repeat
+        }*/
+        #login_box{
+            padding: 35px;
+            border-radius:15px;  /*div圆角*/
+            background: #56666B;
+            /*margin-right: 20px;*/
+            float:right;
+            color: #fff;
+        }
+        #ding{
+            width:1500px;
+            height:20px;
+            color:red;
+        }
+        #cen{
+            width:1500px;
+            height:300px;
+        }
+        #di{
+            width:1500px;
+            height:20px;
+            color:red;
+        }
+        /*#login_title{
+            color: #000000;
+        }*/
+
+    </style>
+</head>
+<body>
+<div id="ding"></div>
+<div id="cen">
+<div class="container" id="top">
+
+    <div class="row" style="margin-top: 240px;">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="col-md-offset-3 col-md-9">
+               <!-- <h1 id='login_title'>用户登录</h1>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" >
+        </div>
+        <div class="col-md-4" id='login_box'>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">用户账号</label>
+                    <div class="col-md-9">
+                        <input class="form-control" type="text"  placeholder="请输入账号" id="account">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">用户密码</label>
+                    <div class="col-md-9">
+                        <input class="form-control" type="text" placeholder="请输入密码" id="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">验证码</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="请输入验证码" size="5" id="imgcode"/>
+                        <br/>
+                        <img id="imgCode" src="../verificationCode"/>
+                        <a href="javascript:changeCode();"><font color="white">换一张</font></a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"></label>
+                    <label class="col-md-5 control-label">
+                        <input type="checkbox" id="remember" value="0"/>记住我？
+                    </label>
+                    <label class="col-md-3 control-label">
+                        <a href="#">忘记密码</a>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-7 col-md-5">
+                        <input type="button" class="form-control btn-default" value="登录" onclick="loginUser()"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4" >
+        </div>
+    </div>
+</div>
+</div>
+<div id="di"></div>
+</body>
+<script type="text/javascript">
+    //登录
+    function loginUser() {
+        var account = $("#account").val();
+        var password = $("#password").val();
+        /*var imgcode = $("#imgcode").val();*/
+        if(account == null || account == ''){
+            alert("账号不能为空");
+            return;
+        }
+        if(password == null || password == ''){
+            alert("密码不能为空");
+            return;
+        }
+        /*if(imgcode == null || imgcode == ''){
+            alert("验证码不能为空");
+            return;
+        }*/
+        if((account == null || account == '')||(password == null || password == '')){
+            return;
+        }
+        $.ajax({
+            url:'../toLogin',
+            type:'get',
+            data:{
+                account:account,
+                password:password
+                /*imgcode:imgcode*/
+            },
+            dataType:'json',
+            success:function(data){
+                if(data.code != 0){
+                    alert(data.msg);
+                }else{
+                    alert("登录成功");
+                    /*window.location.href="../page/main";*/
+                }
+            }
+        })
+    }
+    //验证码
+    function changeCode(){
+        $("#imgCode").attr('src','../verificationCode?t='+Date.now());
+    }
+</script>
+</html>

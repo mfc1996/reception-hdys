@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.LoginMapper">
+      <select id="toLogin" parameterType="string" resultType="com.jk.model.User">
+              select u.userAccount,u.userPassword,ur.roleId as roleId from h_user u left join h_user_role ur on u.userId = ur.userId where u.userAccount = #{value}
+      </select>
+      <select id="qylogin" parameterType="string" resultType="com.jk.model.User">
+              select u.userAccount,u.userPassword,ur.roleId as roleId from h_user u left join h_user_role ur on u.userId = ur.userId where u.userAccount = #{value}
+      </select>
+      <select id="findUserPhone" parameterType="string" resultType="com.jk.model.User">
+              select userId from h_user where userPhone = #{value}
+      </select>
+
+      <select id="findUserByuserPhone" parameterType="string" resultType="int">
+              select count(1) from h_user where userPhone = #{userPhone}
+      </select>
+      <!--注册-->
+      <insert id="saveLoginAccount" useGeneratedKeys="true" keyProperty="userId">
+              insert into h_user(userAccount,userPassword) values(#{userPhone},#{userPassword})
+      </insert>
+      <insert id="saveUserRole" parameterType="int">
+              insert into h_user_role(userId,roleId) values(#{id},6)
+      </insert>
+      <update id="updateUserByPassword">
+           update h_user set userPassword = #{userPassword} where userAccount = #{userPhone}
+      </update>
+</mapper>
