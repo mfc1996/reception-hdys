@@ -2,16 +2,22 @@ package com.jk.model;
 
 import java.io.Serializable;
 
+/**
+ * 产品
+ */
 public class Product implements Serializable {
     private static final long serialVersionUID = -8419100528968762962L;
+
     private Integer productId;
     private String productName;
     private Double productPrice;
     private Integer productDiscountId;
     private Integer productCollectionId;
     private Integer typeId;
+    private String typeName;
     private String productColor;
     private Integer productStockId;
+    private String productStockName;
     private String productSize;
     private String productDeliveryTime;
     private Integer productCommentId;
@@ -21,6 +27,22 @@ public class Product implements Serializable {
     private String addressId;
     private Integer proDealCount;
     private String productImg;
+
+    public String getProductStockName() {
+        return productStockName;
+    }
+
+    public void setProductStockName(String productStockName) {
+        this.productStockName = productStockName;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
 
     public String getProductImg() {
         return productImg;
@@ -167,8 +189,10 @@ public class Product implements Serializable {
                 ", productDiscountId=" + productDiscountId +
                 ", productCollectionId=" + productCollectionId +
                 ", typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
                 ", productColor='" + productColor + '\'' +
                 ", productStockId=" + productStockId +
+                ", productStockName='" + productStockName + '\'' +
                 ", productSize='" + productSize + '\'' +
                 ", productDeliveryTime='" + productDeliveryTime + '\'' +
                 ", productCommentId=" + productCommentId +

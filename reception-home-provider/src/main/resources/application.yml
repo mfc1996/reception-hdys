@@ -1,19 +1,24 @@
 server:
   port: 8082
-
-spring:
-  application:
-    name: server-provider
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.0.104:3306/hdys?ServerTimeZone=HongKong&useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: root
-  #\u914D\u7F6E\u626B\u63CF mybatis xml \u6620\u5C04\u8DEF\u5F84
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: server-provider
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.105:3306/hdys?ServerTimezone=HongKong&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/user
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+
+
 

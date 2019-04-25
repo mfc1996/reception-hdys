@@ -1,6 +1,6 @@
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
 body {font-size:14px; font-family:"微软雅黑",Verdana, Arial, Helvetica, sans-serif; }
-h1, h2, h3, h4, h5, h6 { font-size:100%; }
+h1, h2, h3, h4, h5, h6 { font-size:18px; }
 a {text-decoration:none;color: #333; }
 img { border:none; }
 ol,ul,li { list-style:none; }
@@ -53,7 +53,7 @@ a,input,button{ outline:none; }
     margin-right:20px;
 }
 .search-box{
-    border:1px solid #ff912f;
+    border:1px solid #ab5190;
     width:400px;
     height:40px;
     overflow:hidden;
@@ -68,7 +68,7 @@ a,input,button{ outline:none; }
 }
 .search-box button{
     border: none;
-    background-color:#ff912f;
+    background-color:#ee3d37;
     color:#fff;
     font-size:18px;
     height:40px;
@@ -109,7 +109,7 @@ a,input,button{ outline:none; }
 .navbar{
     min-width: 1200px;
     overflow:hidden;
-    background-color:#377bee;
+    background-color:#fd05397d;
     line-height:45px;
 }
 .navbox{
@@ -122,7 +122,7 @@ a,input,button{ outline:none; }
     font-size:20px;
     float:left;
     width:200px;
-    background-color:#2d69cf;
+    background-color:#fd053966;
     text-align:center;
     cursor:pointer;
 }
@@ -172,8 +172,8 @@ a,input,button{ outline:none; }
     margin: 0;
     padding: 0;
     position: relative;
-    background:#377bee url("../images/icon-left.png") no-repeat 30px 0;
-    height: 410px;
+    background:#fd05398f url("../images/icon-left.png") no-repeat 30px 0;
+    height: 600px;
     float: left;
 }
 
@@ -308,16 +308,12 @@ a,input,button{ outline:none; }
 
 
 .pic-slider{
-    width:750px;
-    height:410px;
+    width:970px;
+    height:600px;
     margin-right:5px;
     overflow:hidden;
 }
-.navpic-rt{
-    width:235px;
-    height:410px;
-    overflow:hidden;
-}
+
 .navpicrt-top{
     width:235px;
     background-color:#fff1f1;
@@ -476,7 +472,7 @@ a,input,button{ outline:none; }
     min-width: 1200px;
     height:auto;
     overflow:hidden;
-    background-color:#4f79d4;
+    background-color:#fd053991;
     clear:both;
     margin-top:20px;
 }
@@ -932,14 +928,14 @@ a,input,button{ outline:none; }
 
 /*大的轮播图片*/
 /* 大的banner的css */
-.slideBox{ width:750px; height:410px; overflow:hidden; position:relative;}
+.slideBox{ width:970px; height:600px; overflow:hidden; position:relative;}
 .slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
 .slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
 .slideBox .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
 .slideBox .hd ul li.on{ background:#f00; color:#fff; }
 .slideBox .bd{ position:relative; height:100%; z-index:0;   }
 .slideBox .bd li{ zoom:1; vertical-align:middle; }
-.slideBox .bd img{ width:750px; height:410px; display:block;  }
+.slideBox .bd img{ width:970px; height:600px; display:block;  }
 
 /* 下面是前/后按钮代码，如果不需要删除即可 */
 .slideBox .prev,

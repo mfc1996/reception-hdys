@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)http://www.xb1y.com/ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>订单管理</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<script src="../bootstrap/jquery.min.js"></script>
+	<link href="../bootstrap/bootstrap3/css/bootstrap.css" rel="stylesheet">
+	<script src="../bootstrap/bootstrap3/js/bootstrap.js"></script>
+	<link href="../bootstrap/bootstrap3/css/style.css" rel="stylesheet">
+	<script src="../bootstrap/bootstrap-bootbox/bootbox.js"></script>
+	<link rel="stylesheet" href="../css/common.css"/>
+	<link rel="stylesheet" href="../css/css.css"/>
+	<script src="../bootstrap/jquery.min.js"></script>
+	<script src="../js/jQuery-2.2.0.min.js"></script>
+	<script src="../js/layer.js"></script>
+	<link rel="stylesheet" href="../css/layer.css" id="layui_layer_skinlayercss" style=""/>
+	<link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+
+	<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var Lis = document.getElementsByTagName("li");
+			for (i = 0; i < Lis.length; i++) {
+				Lis[i].onmouseover = function () {
+					this.className = "lihover";
+				}
+
+				Lis[i].onmouseout = function () {
+					this.className = "";
+				}
+			}
+
+		}
+	</script>
+
+	<link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" id="app">
+<div class="wrapper">
+	<div class="logotop">
+		<div class="logotop-bar">
+			<div class="logotop-lf">
+				Hi,欢迎来到韩都衣舍遇见心动❤
+				<span>
+                【
+                <a href="http://192.168.0.118:8091/page/toLogin" id="dl" style="color: #e57816;"><span id="loginName">请先登录</span></a>
+                |
+                <a href="../toRef" id="zx"><span id="zhuxiao">注册</span></a>
+                                】
+            </span>
+				</div>
+				<ul class="logotop-rt">
+					<li>服务热线：400-0097-600</li>
+					<li><a href="javascript:toOrder()">我的订单 </a></li>
+					<li><a href="javascript:toShop()">我的购物车</a></li>
+					<li><a href="../toHelp">帮助中心</a></li>
+					<li><a href="../toCollect">收藏网站</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--logo栏目-->
+		<div class="logobox" style="overflow:initial;height:120px;">
+			<div class="logoimg">
+				<a href="#">
+					<img src="../image/title.png" height="100" width="300"/><br>
+					没空去韩国？就来韩都衣舍！
+				</a>
+			</div>
+			<div class="logobox-rt" style="overflow:initial">
+				<form action="#" method="get">
+					<div class="search-box" style="overflow:initial">
+						<input type="text" id="nsss" name="productName" placeholder="请输入关键字进行搜索">
+						<button type="button" onclick="query()">搜索</button>
+						<div class="input-xlbox" id="zhaode">
+
+
+
+						</div>
+					</div>
+
+				</form>
+				<script>
+					$(function(){
+						//获取cookie
+						var strCookie = document.cookie;
+						daoHang(strCookie);
+						//利用cookie值查询用户名称
+					})
+
+					function daoHang(strCookie){
+						var arr=strCookie.split("=");
+						var userId ="";
+						for (var i=0;i<arr.length;i++){
+							userId= arr[arr.length-1];
+						}
+						$.ajax({
+							url:'../queryLoginByName/'+userId,
+							type:'get',
+							data:{},
+							dataType:'json',
+							success:function(data){
+								$("#loginName").text(data.names);
+								$("#zhuxiao").text("注销");
+								$("#zx").prop("href","javascript:clearCookie()");
+								$("#dl").prop("href","../toInfo");
+							}
+						})
+					}
+					function clearCookie(){
+						var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+						if (keys) {
+							for (var i = keys.length; i--;) {
+								document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
+								document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
+								document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
+							}
+						}
+						$("#divcookie").html(document.cookie);
+						alert('已清除');
+						location.href="http://192.168.0.118:8091/page/toLogin";
+					}
+
+					//搜索
+					function query(){
+						var produ = $("#nsss").val();
+						$.ajax({
+							url:'../solr/search',
+							pagination:true,
+							pageNumber:1,
+							pageSize:1,
+							pageList:[1,2,5],
+							method:"post",
+							data:{
+
+								productName:produ
+
+							},
+							success:function (data) {
+								window.location.href="../toSearchProduct";
+							}
+						})
+
+
+					}
+
+					$("body").on("input propertychange",".ss-input",function(){
+						var name=$(".ss-input").val();
+						// alert(name);
+						$.ajax({
+							type:'post',
+							url:"/index.php/Home/Index/see.html",
+							data:{'name':name},
+							success:function(data){
+								if(data.state=='1'){
+									var html="";
+									//console.log(data.temp)
+									for(var i=0;i<data.temp.length;i++){
+										html +="<div class='xl-list' inclick>"+data.temp[i].goods_name +"</div>";
+									}
+
+									$("#zhaode").html(html);
+
+								}
+							}
+						});
+
+					})
+					var text22 = '';
+					$("#zhaode").on('mouseover',"div", function(){
+						text22 = $(this).html()
+						//$('.ss-input').val()
+					})
+					$('.ss-input').focus(function(){
+						$('.input-xlbox').show();
+						$('.input-xlbox').css('zIndex','999');
+						$('.input-xlbox').css('opacity','1');
+					});
+					$('.ss-input').blur(function(){
+						$('.input-xlbox').css('zIndex','-1');
+						$('.input-xlbox').css('opacity','0');
+						$(this).val(text22)
+					});
+
+				</script>
+				<style>
+					.input-xlbox{position: absolute;width:350px;top:41px;left:-1px;background:#fff;border:1px solid #ff912f;display:none;}
+					.xl-list{width:100%;padding:5px;box-sizing:border-box;}
+					.xl-list:hover{background:#f2f2f2}
+				</style>
+				<div style="float:right;">
+
+					<a href="javascript:toShop()" class="myshopping">
+						<img src="../image/index_08.png">
+						我的购物车
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--导航-->
+		<div class="navbar">
+			<div class="navbox">
+				<ul class="navbar-list">
+					<li><a href="../toHomePage">首页</a></li>
+					<li><a href="../toShowProduct?typeId=2">上装</a></li>
+					<li><a href="../toShowProduct?typeId=4">裙装</a></li>
+					<li><a href="../toShowProduct?typeId=3">裤装</a></li>
+					<li><a href="../toSpike">秒杀商品</a></li>
+					<li><a href="#">会员制度</a></li>
+					<li><a href="#">活动专区</a></li>
+				</ul>
+			</div>
+		</div>
+	<div class="xb-rightbox">
+		<a href="#">
+			<div class="xb-right_list">
+				<img alt="" src="../image/gr.png">
+				<a href="javascript:toInfo()">我的</a>
+			</div>
+		</a>
+		<a href="#">
+			<div class="xb-right_list">
+				<img alt="" src="../image/dd.png">
+				<a href="javascript:toOrder()">订单</a>
+			</div>
+		</a>
+		<a href="#">
+			<div class="xb-right_list">
+				<img alt="" src="../image/gwc.png">
+				<a href="javascript:toShop()">购物车</a>
+
+			</div>
+		</a>
+		<a href="#">
+			<div class="xb-right_list">
+				<img alt="" src="../image/tw.png">
+				<a href="../toRobot">客服</a>
+			</div>
+		</a>
+		<a href="#">
+			<div class="xb-right_list">
+				<img alt="" src="../image/sc.png">
+				<a href="../toCollect">收藏</a>
+			</div>
+		</a>
+	</div>
+	<style>
+		.xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #8ed4c16b;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
+		.xb-right_list{color:#fff;margin-top:50px;}
+		.xb-right_list img{width:36px;}
+		.xb-qq{margin:5px auto;width:20px;height:20px;border-radius:50%;background:#ff5a00;line-height:20px;font-size:12px;}
+	</style>
+</div>
+
+<script>
+	function toOrder(){
+		var strCookie = document.cookie;
+		if(strCookie=="userId=null"||strCookie ==""||strCookie==null {
+			alert("请先登录");
+			return;
+		}else{
+			location.href="../toOrder";
+		}
+	}
+	function toInfo(){
+		var strCookie = document.cookie;
+		if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+			alert("请先登录");
+			return;
+		}else{
+			location.href="../toInfo";
+		}
+	}
+	function toShop(){
+		var strCookie = document.cookie;
+		if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+			alert("请先登录");
+			return;
+		}else{
+			location.href="../toShop";
+		}
+	}
+var deleteOrder = false;
+var deleteOrderid = 0;
+
+$(function(){
+	$("a[orderStatus]").click(function(){
+		var orderStatus = $(this).attr("orderStatus");
+		if('all'==orderStatus){
+			$("table[orderStatus]").show();	
+		}
+		else{
+			$("table[orderStatus]").hide();
+			$("table[orderStatus="+orderStatus+"]").show();			
+		}
+		
+		$("div.orderType div").removeClass("selectedOrderType");
+		$(this).parent("div").addClass("selectedOrderType");
+	});
+	
+	$("a.deleteOrderLink").click(function(){
+		deleteOrderid = $(this).attr("oid");
+		deleteOrder = false;
+		$("#deleteConfirmModal").modal("show");
+	});
+	
+	$("button.deleteConfirmButton").click(function(){
+		deleteOrder = true;
+		$("#deleteConfirmModal").modal('hide');
+	});	
+	
+	$('#deleteConfirmModal').on('hidden.bs.modal', function (e) {
+		if(deleteOrder){
+			var page="foredeleteOrder";
+			$.post(
+				    page,
+				    {"oid":deleteOrderid},
+				    function(result){
+						if("success"==result){
+							$("table.orderListItemTable[oid="+deleteOrderid+"]").hide();
+						}
+						else{
+							location.href="login.jsp";
+						}
+				    }
+				);
+		}
+	})		
+	
+	$(".ask2delivery").click(function(){
+		var link = $(this).attr("link");
+		$(this).hide();
+		page = link;
+		$.ajax({
+			   url: page,
+			   success: function(result){
+				alert("卖家已秒发，刷新当前页面，即可进行确认收货")
+			   }
+			});
+	});
+});
+
+</script>
+	
+<div class="boughtDiv">
+	<div class="orderType">
+		<div class="selectedOrderType"><a orderstatus="all" href="javascript:skipStatus(1)">所有订单</a></div>
+		<div><a orderstatus="waitDelivery" href="javascript:skipStatus(1)">待发货</a></div>
+		<div><a orderstatus="waitConfirm" href="javascript:skipStatus(2)">待收货</a></div>
+		<div><a orderstatus="waitReview" href="javascript:skipStatus(3)" class="noRightborder">待评价</a></div>
+		<div class="orderTypeLastOne"><a class="noRightborder">&nbsp;</a></div>
+	</div>
+	<div style="clear:both"></div>
+	<div class="orderListTitle">
+		<table class="orderListTitleTable">
+			<tbody><tr>
+				<td width="100px">宝贝</td>
+				<td width="100px">订单编号</td>
+				<td width="100px">商品名称</td>
+				<td width="120px">订单发起时间</td>
+				<td width="100px">订单价格</td>
+				<td width="100px">订单状态</td>
+				<td width="100px">交易操作</td>
+			</tr>
+		</tbody></table>
+	
+	</div>
+	
+	<div class="orderListItem" id="order">
+
+		<input type="hidden" name="orderStatus" id="hideStatus"/>
+	</div>
+	<script>
+
+		$(function(){
+			initStore();
+		})
+		function skipStatus(orderStatus) {
+			$('#hideStatus').val(orderStatus);
+			initStore();
+		}
+		function initStore(){
+			$.ajax({
+				url:'../queryOrder',
+				type:'get',
+				data:{
+					name:JSON.stringify({
+						orderStatus:$("#hideStatus").val()
+					})
+				},
+				async:false,
+				dataType:'json',
+				success:function(data){
+					var data = eval(data);
+					var hhh = "";
+					for (var i=0;i<data.length;i++){
+						var orderStatus = data[i].orderStatus == 1 ? "待发货" : data[i].orderStatus == 2 ? "待收货" :data[i].orderStatus == 3 ? "已收货":"";
+						var caozuo = data[i].orderStatus == 1 ? "" : data[i].orderStatus == 2 ?"<button class='orderListItemConfirm' onclick='updateStatus(\""+data[i].id+"\",3)'>确认收货</button>" : data[i].orderStatus == 3 ? "<button class='orderListItemConfirm' onclick='pinglun("+data[i].orderId+")'>去评论</button>":"";
+						hhh +=" <table class='orderListItemTable' orderstatus='waitPay' oid='10348'>" +
+								"<tbody><tr class='orderListItemFirstTR'>" +
+							    "<td width='100px'>宝贝</td>" +
+								"<td width='100px'>订单编号</td>" +
+								"<td width='100px'>商品名称</td>" +
+								"<td width='120px'>订单发起时间</td>" +
+								"<td width='100px'>订单价格</td>" +
+								"<td width='100px'>订单状态</td>" +
+								"<td width='100px'>交易操作</td>"+
+								"</tr>" +
+								"<tr class='orderItemProductInfoPartTR'>" +
+								"<td class='orderItemProductInfoPartTD'>" +
+								"<img width='80' height='80' src='"+data[i].orderImg+"'></td>" +
+								"<td valign='top' rowspan='1' width='120px' class='orderItemProductInfoPartTD'>" +
+								"<span>"+data[i].orderId+"</span></td>" +
+								"<td valign='top' rowspan='1' width='120px' class='orderItemProductInfoPartTD' width='100px'>" +
+								"<div class='orderListItemProductRealPrice'>"+data[i].orderName+"</div>" +
+								"</td>" +
+								"<td valign='top' rowspan='1' class='orderListItemNumberTD orderItemOrderInfoPartTD' width='100px'>" +
+								"<span>"+data[i].orderTime+"</span></td>" +
+								"<td valign='top' rowspan='1' width='120px' class='orderListItemProductRealPriceTD orderItemOrderInfoPartTD'>" +
+								"<div class='orderListItemProductRealPrice'>"+data[i].orderPrice+"</div>" +
+								"<div class='orderListItemPriceWithTransport'>(含运费：￥0.00)</div>" +
+								"</td>" +
+								"<td valign='top' rowspan='1' width='120px'>" +
+								"<span>"+orderStatus+"</span>" +
+								"</td>" +
+								"<td valign='top' rowspan='1' class='orderListItemButtonTD orderItemOrderInfoPartTD' width='100px'>" +
+								"<span>"+caozuo+"</span" +
+								"</td>" +
+								"</tr>" +
+								"</tbody></table> ";
+					}
+					$("#order").html(hhh);
+				}
+			})
+		}
+		var res;
+		function createAddContent(url){
+			$.ajax({
+				url:url,
+				async:false,
+				success:function(data){
+					res = data;
+				}
+			});
+			return res;
+		}
+		//状态修改
+		function updateStatus(id,orderStatus){
+			bootbox.confirm({
+				size: "small",
+				title:"提示",
+				message: "是否确认改变?",
+				buttons: {
+					confirm: {
+						label: '确定',
+						className: 'btn-success'
+					},
+					cancel: {
+						label: '取消',
+						className: 'btn-danger'
+					}
+				},
+				callback: function (result) {
+					if(result){
+						//后台ajax修改状态
+						$.ajax({
+							url:"http://192.168.0.144:8081/updateStatus",
+							type:"put",
+							data:{
+								'id':id,
+								'orderStatus':orderStatus
+							},
+							success:function(data){
+								bootbox.alert({
+									size: "small",
+									title: "提示",
+									message: "修改成功！",
+									callback: function(){},
+									buttons: {
+										ok: {
+											label: '确定',
+											className: 'btn-success'
+										}
+									}
+								})
+								//刷新表格
+								initStore();
+							}
+						})
+
+					}
+				}
+			})
+		}
+		//打开新增评论弹框
+		function pinglun(orderId){
+			alert(orderId);
+			bootbox.dialog({
+				title:'评价商品',
+				message: createAddContent("../toComment"),
+				closeButton: true,//是否显示关闭按钮
+				buttons : {
+					"success" : {
+						"label" : "<i class='icon-ok'></i> ok",
+						"className" : "btn-sm btn-success",
+						"callback" : function() {
+							var commentInfo = $("#commentInfo").val();
+							$.ajax({
+								url:'../saveComment',
+								contentType:'application/json',
+								type:'post',
+								data:JSON.stringify({
+									'commentInfo':commentInfo,
+									'orderId':orderId
+								}),
+								success:function(data){
+									alert("评论成功！");
+								}
+							});
+						}
+					},
+					"cancel" : {
+						"label" : "<i class='icon-info'></i> cancel",
+						"className" : "btn-sm btn-danger",
+						"callback" : function() {
+
+						}
+					}
+				}
+
+			});
+		}
+	</script>
+</div>
+<script src="../js/jquery.tabs.js"></script>
+<script src="../js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("img[original]").lazyload({ placeholder:"images/color3.gif" });
+		$('.demo2').Tabs({
+			event:'click'
+		});
+		//部分区域图片延迟加载
+		function lazyloadForPart(container) {
+			container.find('img').each(function () {
+				var original = $(this).attr("original");
+				if (original) {
+					$(this).attr('src', original).removeAttr('original');
+				}
+			});
+		}
+	});
+	//加入购物车
+	function add_cart(id){
+		$.ajax({
+			url:'../saveShop',
+			type:'POST',
+			data:{
+				id:id,
+				counts:1
+			},
+			success:function(){
+
+				layer.alert("加入购物车成功！");
+			}
+		})
+
+	}
+	$('.news-index-pricestyle').hover(function(){
+		$(this).find($('.cp-show')).css('zIndex',2)
+	},function(){
+		$(this).find($('.cp-show')).css('zIndex',-2)
+	})
+</script>
+
+</section>
+</div>
+
+</div>
+<!--底部内容-->
+<div class="footer-box">
+	<div class="footer-link" style="height:215px;">
+		<ul class="footer-linka">
+			<li style="font-size:18px;border-bottom:1.5px solid #fff">购物指南  </li>
+
+			<li><a href="#">免费注册</a></li>
+			<li><a href="#">开通支付宝</a></li>
+			<li><a href="#">支付宝充值</a></li>
+		</ul>
+		<ul class="footer-linka">
+			<li style="font-size:18px; border-bottom:1.5px solid #fff">支付方式 </li>
+			<li><a href="#">快捷支付</a></li>
+			<li><a href="#">信用卡</a></li>
+			<li><a href="#">余额宝</a></li>
+			<li><a href="#">蚂蚁花呗</a></li>
+			<li><a href="#">货到付款</a></li>
+		</ul>
+		<ul class="footer-linka">
+			<li style="font-size:18px;border-bottom:1.5px solid #fff">配送服务 </li>
+			<li><a href="#">上门自提</a></li>
+			<li><a href="#">限时配送</a></li>
+			<li><a href="#">配送服务查询</a></li>
+		</ul>
+		<ul class="footer-linka">
+			<li style="font-size:18px;border-bottom:1.5px solid #fff">售后服务 </li>
+			<li><a href="#">退货规则</a></li>
+			<li><a href="#">退货流程</a></li>
+		</ul>
+		<ul class="footer-linka">
+			<li style="font-size:18px;border-bottom:1.5px solid #fff">关于我们</li>
+			<li><a href="#">联系我们</a></li>
+			<li><a href="#">店铺简介</a></li>
+		</ul>
+		<ul class="footer-linka">
+			<li style="font-size:18px;border-bottom:1.5px solid #fff">帮助中心</li>
+			<li><a href="#">密码找回</a></li>
+			<li><a href="#">密码修改</a></li>
+			<li><a href="#">意见与反馈</a></li>
+		</ul>
+		<div class="erweima-box">
+			<img src="../image/erweima.png">
+			<p>扫描关注，微信二维码</p>
+		</div>
+	</div>
+	<div style="padding:15px;font-size:15px;text-align: center;color:#fff"><img src="../image/jingca.png">浙公网安备 33010002000120号</div>
+</div>
+<script>
+	$(function(){
+		$.ajax({
+			'url':"/index.php/Home/AjaxMessage/index.html",
+			type:'get',
+			dataType:'json',
+			success:function(data){
+				if(data.status==1) {
+					if(data.type===1){
+						layer.msg(data.message,{icon:1});
+					}else{
+						layer.alert(data.message,{icon:2});
+					}
+				}
+			}
+		})
+	})
+
+</script>
+
+</body></html>

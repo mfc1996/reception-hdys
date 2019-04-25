@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<!-- 这是jquery的核心包  -->
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<!-- 这是easyui的核心包  -->
+<script type="text/javascript" src="../easyui/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="../easyui/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+
+
+<!-- jqeuy默认的css样式 -->
+<link rel="stylesheet" type="text/css" href="../easyui/jquery-easyui-1.5/themes/default/easyui.css"/>
+
+<link rel="stylesheet" type="text/css" href="../easyui/jquery-easyui-1.5/themes/icon.css"/>
+<body>
+
+
+   <form id="serach_form" method="get" >
+
+    标题：<input type="easyui-textbox" id="productName" name="productName">
+      <input type="button" onclick="query()" value="提交">
+   </form>
+
+
+<div  class="easyui-linkbutton" onclick="deleteUsers()" data-options="iconCls:'icon-remove',plain:true">删除</div>
+    <div class="easyui-datagrid" id="role_datagrid">6666</div>
+
+</body>
+<script type="text/javascript" >
+    /*<![CDATA[*/
+$(function () {
+    alert(111);
+    /*query();*/
+})
+    function query(){
+        $("#role_datagrid").datagrid({
+            url:'../solr/search',
+            fitColumns:true,
+            striped:true,
+            ctrlSelect:true,
+            pagination:true,
+            pageNumber:1,
+            pageSize:1,
+            pageList:[1,2,5],
+            method:"post",
+            queryParams:{
+                productName:$("#productName").val()
+            },
+            columns:[
+                [
+                    {field:'productId',title:'编号',width:100},
+                    {field:'productName',title:'名称',width:100},
+                    {field:'productColor',title:'颜色',width:100},
+                    {field:'productSize',title:'尺码',width:100},
+                    {field:'productState',title:'状态',width:100},
+                    {field:'productPrice',title:'价格',width:100}
+                ]
+            ]
+        })
+        window.location.href="../toSearchProduct";
+
+    }
+
+
+    /*]]>*/
+</script>
+</html>

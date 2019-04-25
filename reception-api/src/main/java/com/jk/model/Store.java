@@ -2,6 +2,9 @@ package com.jk.model;
 
 import java.io.Serializable;
 
+/**
+ * 店铺
+ */
 public class Store implements Serializable {
 
     private static final long serialVersionUID = -2924924642485769307L;

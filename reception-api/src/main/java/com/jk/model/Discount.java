@@ -2,6 +2,9 @@ package com.jk.model;
 
 import java.io.Serializable;
 
+/**
+ * 优惠表
+ */
 public class Discount implements Serializable {
 
     private static final long serialVersionUID = -8318327778051514044L;

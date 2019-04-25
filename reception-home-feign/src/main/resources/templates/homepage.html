@@ -1,216 +1,312 @@
 <!DOCTYPE html>
-<!-- saved from url=(0020)http://www.xb1y.com/ -->
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>韩都衣舍🙌</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- saved from url=(0020)http://www.xb1y.com/ -->
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>韩都衣舍🙌</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-<link rel="stylesheet" href="../css/common.css"/>
-<link rel="stylesheet" href="../css/css.css"/>
-<script src="../bootstrap/jquery.min.js"></script>
-<script src="../js/jQuery-2.2.0.min.js"></script>
-<script src="../js/layer.js"></script>
-<link rel="stylesheet" href="../css/layer.css" id="layui_layer_skinlayercss" style=""/>
-<link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+        <link rel="stylesheet" href="../css/common.css"/>
+        <link rel="stylesheet" href="../css/css.css"/>
+        <script src="../bootstrap/jquery.min.js"></script>
+        <script src="../js/jQuery-2.2.0.min.js"></script>
+        <script src="../js/layer.js"></script>
+        <link rel="stylesheet" href="../css/layer.css" id="layui_layer_skinlayercss" style=""/>
+        <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
 
-<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
-<script type="text/javascript">
-    window.onload = function () {
-        var Lis = document.getElementsByTagName("li");
-        for (i = 0; i < Lis.length; i++) {
-            Lis[i].onmouseover = function () {
-                this.className = "lihover";
+        <script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                var Lis = document.getElementsByTagName("li");
+                for (i = 0; i < Lis.length; i++) {
+                    Lis[i].onmouseover = function () {
+                        this.className = "lihover";
+                    }
+
+                    Lis[i].onmouseout = function () {
+                        this.className = "";
+                    }
+                }
+
             }
+        </script>
 
-            Lis[i].onmouseout = function () {
-                this.className = "";
-            }
-        }
-
-    }
-</script>
-
-    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
-</head>
-<body class="hold-transition skin-blue sidebar-mini" id="app">
-<div class="wrapper">
-    <header class="main-header">
-<div class="logotop">
-    <div class="logotop-bar">
-        <div class="logotop-lf">
-            Hi,欢迎来到韩都衣舍遇见心动❤
-            <span>
+        <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini" id="app">
+    <div class="wrapper">
+        <header class="main-header">
+            <div class="logotop">
+                <div class="logotop-bar">
+                    <div class="logotop-lf">
+                        Hi,欢迎来到韩都衣舍遇见心动❤
+                        <span>
                 【
-                <a href="#" style="color: #e57816;">请先登录</a>
+                <a href="http://192.168.0.118:8091/page/toLogin" id="dl" style="color: #e57816;"><span id="loginName">请先登录</span></a>
                 |
-                <a href="#">注册</a>
+                <a href="../toRef" id="zx"><span id="zhuxiao">注册</span></a>
                                 】
             </span>
-        </div>
-        <ul class="logotop-rt">
-            <li>服务热线：400-0097-600</li>
-            <li><a href="#">我的订单 </a></li>
-            <li><a href="#">我的购物车</a></li>
-            <li><a href="#">帮助中心</a></li>
-            <li><a href="#">收藏网站</a></li>
-        </ul>
-    </div>
-</div>
-<!--logo栏目-->
-<div class="logobox" style="overflow:initial;height:120px;">
-    <div class="logoimg">
-        <a href="#">
-            <img src="../image/title.png" height="100" width="300"/><br>
-            没空去韩国？就来韩都衣舍！
-        </a>
-    </div>
-    <div class="logobox-rt" style="overflow:initial">
-        <form action="#" method="get">
-            <div class="search-box" style="overflow:initial">
-                <input type="text" class="ss-input" name="key" value="" placeholder="请输入关键字进行搜索">
-                <button type="submit">搜索</button>
-				<div class="input-xlbox" id="zhaode">
-					
-						
-					
-				</div>
+                    </div>
+                    <ul class="logotop-rt">
+                        <li>服务热线：400-0097-600</li>
+                        <li><a href="javascript:toOrder()">我的订单 </a></li>
+                        <li><a href="javascrip:toShop()">我的购物车</a></li>
+                        <li><a href="../toHelp">帮助中心</a></li>
+                        <li><a href="../toCollect">收藏网站</a></li>
+                    </ul>
+                </div>
             </div>
-        </form>
-		<script>
-			
-			$("body").on("input propertychange",".ss-input",function(){
-				 var name=$(".ss-input").val();
-				  // alert(name);
-				   $.ajax({
-						type:'post',
-						url:"/index.php/Home/Index/see.html",
-						data:{'name':name},
-						success:function(data){
-							if(data.state=='1'){
-								var html="";
-								//console.log(data.temp)
-								for(var i=0;i<data.temp.length;i++){
-									html +="<div class='xl-list' inclick>"+data.temp[i].goods_name +"</div>";
-								}
-								
-							   $("#zhaode").html(html);
-								
-							}
-						}
-					});
-				
-			}) 
-			var text22 = '';
-			$("#zhaode").on('mouseover',"div", function(){
-				 text22 = $(this).html()
-			    //$('.ss-input').val()
-			})
-			$('.ss-input').focus(function(){
-				$('.input-xlbox').show();
-				$('.input-xlbox').css('zIndex','999');
-				$('.input-xlbox').css('opacity','1');
-			});
-			$('.ss-input').blur(function(){
-				$('.input-xlbox').css('zIndex','-1');
-				$('.input-xlbox').css('opacity','0');
-				$(this).val(text22)
-			});
-			
-		</script>
-		<style>
-		.input-xlbox{position: absolute;width:350px;top:41px;left:-1px;background:#fff;border:1px solid #ff912f;display:none;}
-		.xl-list{width:100%;padding:5px;box-sizing:border-box;}
-		.xl-list:hover{background:#f2f2f2}
-		</style>
-        <div style="float:right;">
-					
-			  <a href="#" class="drug-register">
-                <img src="../image/index_06.png"> 商品短缺登记
+            <!--logo栏目-->
+            <div class="logobox" style="overflow:initial;height:120px;">
+                <div class="logoimg">
+                    <a href="#">
+                        <img src="../image/title.png" height="100" width="300"/><br>
+                        没空去韩国？就来韩都衣舍！
+                    </a>
+                </div>
+                <div class="logobox-rt" style="overflow:initial">
+                    <form action="#" method="get">
+                        <div class="search-box" style="overflow:initial">
+                            <input type="text" id="nsss" name="productName" placeholder="请输入关键字进行搜索">
+                            <button type="button" onclick="query()">搜索</button>
+                            <div class="input-xlbox" id="zhaode">
+
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                    <script>
+                        //搜索
+                        function query(){
+                            var produ = $("#nsss").val();
+
+                            $.ajax({
+                                url:'../solr/search',
+                                pagination:true,
+                                pageNumber:1,
+                                pageSize:1,
+                                pageList:[1,2,5],
+                                method:"post",
+                                data:{
+
+                                    productName:produ
+
+                                },
+                                success:function (data) {
+                                    window.location.href="../toSearchProduct";
+                                }
+                            })
+
+
+                        }
+
+                        $("body").on("input propertychange",".ss-input",function(){
+                            var name=$(".ss-input").val();
+                            // alert(name);
+                            $.ajax({
+                                type:'post',
+                                url:"/index.php/Home/Index/see.html",
+                                data:{'name':name},
+                                success:function(data){
+                                    if(data.state=='1'){
+                                        var html="";
+                                        //console.log(data.temp)
+                                        for(var i=0;i<data.temp.length;i++){
+                                            html +="<div class='xl-list' inclick>"+data.temp[i].goods_name +"</div>";
+                                        }
+
+                                        $("#zhaode").html(html);
+
+                                    }
+                                }
+                            });
+
+                        })
+                        var text22 = '';
+                        $("#zhaode").on('mouseover',"div", function(){
+                            text22 = $(this).html()
+                            //$('.ss-input').val()
+                        })
+                        $('.ss-input').focus(function(){
+                            $('.input-xlbox').show();
+                            $('.input-xlbox').css('zIndex','999');
+                            $('.input-xlbox').css('opacity','1');
+                        });
+                        $('.ss-input').blur(function(){
+                            $('.input-xlbox').css('zIndex','-1');
+                            $('.input-xlbox').css('opacity','0');
+                            $(this).val(text22)
+                        });
+
+                    </script>
+                    <style>
+                        .input-xlbox{position: absolute;width:350px;top:41px;left:-1px;background:#fff;border:1px solid #ff912f;display:none;}
+                        .xl-list{width:100%;padding:5px;box-sizing:border-box;}
+                        .xl-list:hover{background:#f2f2f2}
+                    </style>
+                    <div style="float:right;">
+
+                        <a href="javascript:toShop()" class="myshopping">
+                            <img src="../image/index_08.png">
+                            我的购物车
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--导航-->
+            <div class="navbar">
+                <div class="navbox">
+                    <h3>商品分类</h3>
+                    <ul class="navbar-list">
+                        <li><a href="../toHomePage">首页</a></li>
+                        <li><a href="../toShowProduct?typeId=2">上装</a></li>
+                        <li><a href="../toShowProduct?typeId=4">裙装</a></li>
+                        <li><a href="../toShowProduct?typeId=3">裤装</a></li>
+                        <li><a href="../toSpike">秒杀商品</a></li>
+                        <li><a href="#">会员制度</a></li>
+                        <li><a href="#">活动专区</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="xb-rightbox">
+            <a href="#">
+                <div class="xb-right_list">
+                    <img alt="" src="../image/gr.png">
+                    <a href="javascript:toInfo()">我的</a>
+                </div>
             </a>
-			
-		             <a href="#" class="myshopping">
-                <img src="../image/index_08.png">
-                我的购物车
-            </a> 
-        </div> 
-    </div>
-</div>
-<!--导航-->
-<div class="navbar">
-    <div class="navbox">
-        <h3>商品分类</h3>
-        <ul class="navbar-list">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">T恤</a></li>
-            <li><a href="#">裙装</a></li>
-            <li><a href="#">裤装</a></li>
-            <li><a href="#">秒杀商品</a></li>
-            <li><a href="#">会员制度</a></li>
-            <li><a href="#">活动专区</a></li>
-        </ul>
-    </div>
-</div>
-</header>
-<div class="xb-rightbox">
-	<a href="#">
-		<div class="xb-right_list">
-			<img alt="" src="../image/gr.png">
-			我的
-		</div>
-	</a>
-	 <a href="#">
-		<div class="xb-right_list">
-			<img alt="" src="../image/dd.png">
-			订单
-		</div>
-	</a>
-	<a href="#">
-		<div class="xb-right_list">
-			<img alt="" src="../image/gwc.png">
-			购物车
-	
-		</div>
-	</a>
-	<a href="#">
-		<div class="xb-right_list">
-			<img alt="" src="../image/tw.png">
-			帮助
-		</div>
-	</a>
-	<a href="#">
-		<div class="xb-right_list">
-			<img alt="" src="../image/sc.png">
-			收藏
-		</div>
-	</a>
-</div>
+            <a href="#">
+                <div class="xb-right_list">
+                    <img alt="" src="../image/dd.png">
+                    <a href="javascript:toOrder()">订单</a>
+                </div>
+            </a>
+            <a href="#">
+                <div class="xb-right_list">
+                    <img alt="" src="../image/gwc.png">
+                    <a href="javascript:toShop()">购物车</a>
+
+                </div>
+            </a>
+            <a href="#">
+                <div class="xb-right_list">
+                    <img alt="" src="../image/tw.png">
+                    <a href="../toRobot">客服</a>
+                </div>
+            </a>
+            <a href="#">
+                <div class="xb-right_list">
+                    <img alt="" src="../image/sc.png">
+                    <a href="javascript:toCollect()">收藏</a>
+                </div>
+            </a>
+        </div>
 <style>
-.xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #CAFF70;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
+.xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #8ed4c16b;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
 .xb-right_list{color:#fff;margin-top:50px;}
 .xb-right_list img{width:36px;}
 .xb-qq{margin:5px auto;width:20px;height:20px;border-radius:50%;background:#ff5a00;line-height:20px;font-size:12px;}
 </style>
+
     <div class="content-wrapper">
+
     <section class="content-header">
         
 
     </section>
     <section class="content">
-        
+        <!--中间部分-->
+     <!-- <iframe src="" width="1600" height="1500" name="111"></iframe>-->
+        <!-- <div  id="vdiv">-->
 <!--导航轮播图片-->
 <div class="navpic-slider">
     <ul class="topmenu"></ul>
     <script type="text/javascript">
+        function toOrder(){
+            var strCookie = document.cookie;
+            if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                alert("请先登录");
+                return;
+            }else{
+                location.href="../toOrder";
+            }
+        }
+        function toInfo(){
+            var strCookie = document.cookie;
+            if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                alert("请先登录");
+                return;
+            }else{
+                location.href="../toInfo";
+            }
+        }
+        function toShop(){
+            var strCookie = document.cookie;
+            if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                alert("请先登录");
+                return;
+            }else{
+                location.href="../toShop";
+            }
+        }
+        function toCollect(){
+            var strCookie = document.cookie;
+            if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                alert("请先登录");
+                return;
+            }else{
+                location.href="../toCollect";
+            }
+        }
         $(function(){
-            initType(0)
+            //获取cookie
+            var strCookie = document.cookie;
+            daoHang(strCookie);
+            //利用cookie值查询用户名称
+            initType(0);
+           //$("#vdiv").hide();
         })
 
+        function daoHang(strCookie){
+            var arr=strCookie.split("=");
+            var userId ="";
+            for (var i=0;i<arr.length;i++){
+                userId= arr[arr.length-1];
+            }
+            $.ajax({
+                url:'../queryLoginByName/'+userId,
+                type:'get',
+                data:{},
+                dataType:'json',
+                success:function(data){
+                    $("#loginName").text(data.names);
+                    $("#zhuxiao").text("注销");
+                    $("#zx").prop("href","javascript:clearCookie()");
+                    $("#dl").prop("href","../toInfo");
+                }
+            })
+        }
+        function clearCookie(){
+            var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+            if (keys) {
+                for (var i = keys.length; i--;) {
+                    document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
+                    document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
+                    document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
+                }
+            }
+            $("#divcookie").html(document.cookie);
+            alert('已清除');
+            location.href="http://192.168.0.118:8091/page/toLogin";
+        }
+
         function changeClass(pid){
-
             $("#li"+pid).removeClass("lihover")
-
         }
 
         function initTypeTwo(pid){
@@ -220,7 +316,7 @@
                 return;
             }
             $.ajax({
-                url:'http://192.168.23.1:8081/queryType',
+                url:'../queryType',
                 type:'get',
                 data:{pid:pid},
                 dataType:'json',
@@ -230,11 +326,11 @@
                     for(var i=0;i<data.length;i++){
                         var list = data[i].nodes
                         html+='<dl>'+
-                            '<dt><a href="http://192.168.101.134:8092/webReview/toMain?secondCatalog='+data[i].id+'" target="_self" onclick="window.onload()" >'+data[i].text+'</a></dt>'+
+                            '<dt><a href="../toShowProduct?typeId='+data[i].typeId+'" target="_self" onclick="window.onload()" >'+data[i].text+'</a></dt>'+
                             '<dd>';
                         if( list != null){
                             for(var j=0;j < list.length;j++){
-                                html+='<a href="http://192.168.101.134:8092/webReview/toMain?thirdCatalog='+list[j].id+'" target="_self" onclick="window.onload()">'+list[j].text+'</a>';
+                                html+='<a href="../toShowProduct?typeId='+list[j].typeId+'" target="_self" onclick="window.onload()">'+list[j].text+'</a>';
                             }
                         }
                         html+="</dd></dl>";
@@ -245,7 +341,7 @@
         }
         function initType(pid){
             $.ajax({
-                url:'http://192.168.0.144:8081/queryType',
+                url:'../queryType',
                 type:'get',
                 data:{pid:pid},
                 dataType:'json',
@@ -253,7 +349,7 @@
                     var html="";
                     for(var i=0;i<data.length;i++){
                         html+='<li  id="li'+data[i].id+'" onmouseover="initTypeTwo('+data[i].id+')" onmouseout="changeClass('+data[i].id+')">' +
-                            '<a  href="http://192.168.101.134:8092/webReview/toMain?firstCatalog='+data[i].id+'" target="_self" onclick="window.onload()"  >'+data[i].text+'<span style="margin-left:20px">&gt;</span></a>'+
+                            '<a  href="../toShowProduct?typeId='+data[i].typeId+'" target="_self" onclick="window.onload()"  >'+data[i].text+'<span style="margin-left:20px">&gt;</span></a>'+
                             '<div class="submenu">'+
                             '<div class="leftdiv" id="first'+data[i].id+'">'+
                             '</div>'+
@@ -315,11 +411,11 @@
             </div>
             <div class="bd">
                 <ul>
-                    <li style="display: none;"><a href="javascript:void(0)" target="_blank"><img src="../image/lun1.jpg"></a></li>
-                    <li style="display: list-item;"><a href="javascript:void(0)" target="_blank"><img src="../image/lun2.jpg"></a></li>
-                    <li style="display: none;" class=""><a href="javascript:void(0)" target="_blank"><img src="../image/lun3.jpg"></a></li>
+                    <li style="display: none;"><a href="javascript:void(0)" target="_blank"><img src="" id="im1" width="970px" height="600px"></a></li>
+                    <li style="display: list-item;"><a href="javascript:void(0)" target="_blank"><img src="" id="im2" width="970px" height="600px"></a></li>
+                    <li style="display: none;" class=""><a href="javascript:void(0)" target="_blank"><img src="" id="im3" width="970px" height="600px"></a></li>
                 </ul>
-            </div>
+            </div>7
 
 
             &lt;!&ndash; 下面是前/后按钮代码，如果不需要删除即可 &ndash;&gt;
@@ -328,48 +424,28 @@
         </div>
 
         <script type="text/javascript">
+            $(function(){
+                initImg();
+            })
+            function initImg(){
+                $.ajax({
+                    url:'../queryImg',
+                    type:'get',
+                    data:{},
+                    async:false,
+                    dataType:'json',
+                    success:function(data){
+                        $("#im1").prop("src",data[0].lunImg);
+                        $("#im2").prop("src",data[1].lunImg);
+                        $("#im3").prop("src",data[2].lunImg);
+                    }
+                })
+            }
+
             jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
         </script>
 
     </div>
-    </div>
-    <div class="navpic-rt">
-         <ul class="navpicrt-top">
-             <li>
-                 <img src="../image/index_14.png">
-                 <p>权威荣誉</p>
-             </li>
-             <li>
-                 <img src="../image/index_16.png">
-                 <p>品牌授权</p>
-             </li>
-             <li>
-                 <img src="../image/index_18.png">
-                 <p>正品保险</p>
-             </li>
-             <li>
-                 <img src="../image/index_24.png">
-                 <p>网店认证</p>
-             </li>
-             <li>
-                 <img src="../image/index_26.png">
-                 <p>退货无忧</p>
-             </li>
-             <li>
-                 <img src="../image/index_27.png">
-                 <p>隐私包装</p>
-             </li>
-         </ul>
-        <p class="navpicrt-tel">400-0097-600</p>
-         <p class="fastshop">
-					<a href="http://www.xb1y.com/index.php/Home/Index/shopping.html" style="color: #ffffff;">快速采购</a> 
-					</p>
-        <div class="navpicrt-signin">
-        	              <p>用户登录     |  注册</p>
-              <ul>
-                  <li><a href="http://www.xb1y.com/index.php/Home/Member/Member_login.html">登录</a></li>
-                  <li><a href="http://www.xb1y.com/index.php/Home/Member/Member_register.html" style="background-color:#CAFF70;">注册</a></li>
-              </ul>        </div>
     </div>
 <!--限时秒杀栏目-->
 <div class="xianshimiaosha">
@@ -398,7 +474,7 @@
             sh=setInterval(fresh,1000);
         </script>
 
-        <a href="http://www.xb1y.com/index.php/Home/Activityzone/ActivityInfo/act/1.html" class="xiaqiyugao" target="_blank">下期预告&gt;</a>
+        <a href="#" class="xiaqiyugao" target="_blank">下期预告&gt;</a>
         <div class="hd">
             <a class="next"></a>
             <a class="prev"></a>
@@ -428,7 +504,7 @@
 <!--首页中间广告位的广告栏目--的广告栏目-->
  <div class="small-pic">
    <div class="smallpic-slider">
-       <a href="#">
+       <a href="../toSpike">
            <img src="../image/heng.jpg" height="800px" width="1920px"/>
        </a>
 	</div>
@@ -491,13 +567,14 @@
 		}
 
     </style>
+<!--</div>//123456-->
 	<div class="box demo2">
 
         <ul class="tab_menu">
-            <li style="background-color:#0cde42;" onclick="assignFistCatalog(1)" ><img src="../image/tebiea.png">特别推荐</li>
-            <li style="background-color:#ff9642;" onclick="assignFistCatalog(2)" ><img src="../image/shangyia.png">上装</li>
-            <li style="background-color:#ff307c;" onclick="assignFistCatalog(3)" ><img src="../image/xiayia.png">下装</li>
-            <li style="background-color:#117cda;" onclick="assignFistCatalog(4)"><img src="../image/qunzia.png">裙装/套装/家居服</li>
+            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(1)" ><img src="../image/tebiea.png">特别推荐</li>
+            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(2)" ><img src="../image/shangyia.png">上装</li>
+            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(3)" ><img src="../image/xiayia.png">下装</li>
+            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(4)"><img src="../image/qunzia.png">裙装/套装/家居服</li>
         </ul>
         <input type="hidden" id="firstCatalog" value="1" />
         <div class="tab_box">
@@ -505,74 +582,128 @@
             <div>
                 <div class="shoppic-box">
                     <div class="shop-piclf">
-                        <ul class="goods-box" id="product">
+                        <ul class="goods-box">
                         </ul>
 						<ul class="tab_menu">
-                            <li style="background-color:#0cde42;" onclick="assignFistCatalog(1)" ><img src="../image/tebiea.png">情侣款</li>
-                            <li style="background-color:#ff9642;" onclick="assignFistCatalog(2)" ><img src="../image/shangyia.png">休闲款</li>
-                            <li style="background-color:#ff307c;" onclick="assignFistCatalog(3)" ><img src="../image/xiayia.png">时尚款</li>
-                            <li style="background-color:#117cda;" onclick="assignFistCatalog(4)"><img src="../image/qunzia.png">超仙的风</li>
+                            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(1)" ><img src="../image/tebiea.png">情侣款</li>
+                            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(2)" ><img src="../image/shangyia.png">休闲款</li>
+                            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(3)" ><img src="../image/xiayia.png">时尚款</li>
+                            <li style="background-color:#fd05399c;" onclick="assignFistCatalog(4)"><img src="../image/qunzia.png">超仙的风</li>
 						</ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         $(function(){
-            initProduct();
+            initProduct(1,15);
         })
-        function initProduct(){
+
+        function assignFistCatalog(id){
+            $('#firstCatalog').val(id);
+            initProduct(1,15)
+        }
+
+        <!--商品 鼠标滑过事件 详情-->
+        function hover(typeId){
+            $('.cp-show'+typeId).css('zIndex',2)
+
+        }
+        function out(typeId){
+            $('.cp-show'+typeId).css('zIndex',-2)
+        }
+
+        function initProduct(page,rows){
+
+            var firstCatalog = $('#firstCatalog').val();
+
             $.ajax({
-                url:'http://192.168.0.144:8081/queryProduct',
+                url:'../queryProduct',
                 type:'get',
-                data:{},
-                async:false,
+                data:{
+                    page:page,
+                    rows:rows,
+                    searchList:JSON.stringify({
+
+                        "constant":1,//上架时间最近一周
+                        "salesVolume":3,//按时间倒叙排列
+                        "firstCatalog":firstCatalog
+                    })
+                },
                 dataType:'json',
                 success:function(data){
-                   var data = eval(data);
-
-                    var ppp = "";
-                    for (var c=0;c<data.length;c++){
-                        var productImg = data[c].productImg;
-                        var productName = data[c].productName;
-                        var productSize = data[c].productSize;
-                        var productPrice = data[c].productPrice;
-                        var productColor = data[c].productColor;
-                        var typeId = data[c].typeId;
-                        ppp +="<li class=\"cp-list\" style=\"position:relative\">" +
-                            "            <a href=\"#\" target=\"_blank\">" +
-                            "            <img src='"+productImg+"'>" +
-                            "            <h3>"+productName+"</h3>" +
-                            "        <span style=\"text-indent: 10px;\">尺码："+productSize+"</span>" +
-                            "        <h3 class=\"news-index-pricestyle\" style=\"text-indent: 0\">价格："+productPrice+"</h3> " +
-                            "        </a><a href=\"javascript:void(0);\" onclick=\"add_cart(908)\" class=\"active-addcars\">" +
-                            "        加入购物车" +
-                            "        </a> " +
-                            "        <div class=\"cp-show\" style=\"position:absolute;width:100%;height:235px;;left:0;top:0;z-index:-1;background-color:rgba(51,57,57,0.8);padding:25px 10px;color:#fff;box-sizing:border-box\">" +
-                            "            <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap\">" +
-                            "            <span style=\"float:left;width:80px;text-align:right\">功能：</span>" +
-                            "        <span style=\"float:left;width:120px;\">​"+productColor+"</span>" +
-                            "        </p>" +
-                            "        <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap\">" +
-                            "            <span style=\"float:left;width:80px;text-align:right\">尺码：</span>" +
-                            "        <span style=\"float:left;width:120px;\">"+productSize+"</span>" +
-                            "        </p>\n" +
-                            "        <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap\">" +
-                            "            <span style=\"float:left;width:80px;text-align:right\">产品类型：</span>\n" +
-                            "        <span style=\"float:left;width:120px;\">"+typeId+"</span>" +
-                            "            </p>" +
-                            "            <p style=\"text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap;position:absolute;right:20px;bottom:10px;\">" +
-                            "            <a style=\" float:left;width:100%;text-align:right;color:#fff;padding:3px 0;margin-top:2px;\" href=\"http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/908.html\" target=\"_blank\">查看详情 &gt;</a>" +
-                            "            </p>" +
-                            "            </div>" +
-                            "            </li>";
+                    var html="";
+                for(var c=0;c<data.length;c++ ){
+                    var productImg = data[c].productImg;
+                    var productName = data[c].productName;
+                    var productSize = data[c].productSize;
+                    var productPrice = data[c].productPrice;
+                    var productColor = data[c].productColor;
+                    var typeId = data[c].typeId;
+                    html+="<li style='position:relative' onmouseover='hover("+typeId+")' onmouseout='out("+typeId+")' >" +
+                    "            <a href='#' target='_blank'>" +
+                    "            <a href='javascript:info("+data[c].productId+")'><img src='"+productImg+"'></a>" +
+                    "            <h3>"+productName+"</h3>" +
+                    "        <span style='text-indent: 10px;'>尺码："+productSize+"</span>" +
+                    "        <h3 class='news-index-pricestyle' style='text-indent: 0'>价格："+productPrice+"</h3> " +
+                    "        </a><a href='javascript:void(0);' onclick='addProduct("+data[c].productId+")' class='active-addcars'>" +
+                    "        加入购物车" +
+                    "        </a> " +
+                    "        <div class='cp-show' style='position:absolute;width:100%;height:235px;;left:0;top:0;z-index:-1;background-color:rgba(51,57,57,0.8);padding:25px 10px;color:#fff;box-sizing:border-box'>" +
+                    "            <p style='text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap'>" +
+                    "            <span style='float:left;width:80px;text-align:right'>功能：</span>" +
+                    "        <span style='float:left;width:120px;'>​"+productColor+"</span>" +
+                    "        </p>" +
+                    "        <p style='text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap'>" +
+                    "            <span style='float:left;width:80px;text-align:right'>尺码：</span>" +
+                    "        <span style='float:left;width:120px;'>"+productSize+"</span>" +
+                    "        </p>" +
+                    "        <p style='text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap'>" +
+                    "            <span style='float:left;width:80px;text-align:right'>产品类型：</span>" +
+                    "        <span style='float:left;width:120px;'>"+typeId+"</span>" +
+                    "            </p>" +
+                    "            <p style='text-align:left;display:flex;justify-content:space-between;flex-wrap:wrap;position:absolute;right:20px;bottom:10px;'>" +
+                    "            <a style=' float:left;width:100%;text-align:right;color:#fff;padding:3px 0;margin-top:2px;' href='javascript:info("+data[c].productId+")' target='_blank'>查看详情 &gt;</a>" +
+                    "            </p>" +
+                    "            </div>" +
+                    "            </li>";
                     }
-                    $("#product").html(ppp);
+                    $(".goods-box").html(html);
                 }
             })
         }
+        function addProduct(productId){
+            var strCookie = document.cookie;
+            /*alert(strCookie);
+            var arr=strCookie.split("=");
+            var userIds ="";
+            for (var i=0;i<arr.length;i++){
+                userIds= arr[arr.length-1];
+            }
+            alert(userIds);*/
+            if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                alert("还没登录哦");
+                return;
+            }else{
+            $.ajax({
+                url:'../addCar',
+                type:'post',
+                data:{
+                    spid:productId
+                },
+                success:function(){
+                    alert("加入购物车成功！");
+                }
+            })
+            }
+
+        }
+        function info(productId){
+            location.href="../toProductInfo?productId="+productId;
+        }
     </script>
+
     <!--相关企业-->
     <div class="link-index" style="margin-top: 20px;">
         <h3>
@@ -596,7 +727,7 @@
             })
             function initStore(){
                 $.ajax({
-                    url:'http://192.168.0.144:8081/queryStore',
+                    url:'../queryStore',
                     type:'get',
                     data:{},
                     async:false,
@@ -685,19 +816,23 @@
             });
         }
     });
-	function add_cart(id){
-		$.post("/index.php/Home/Goods/add_cart.html", {id:id,num:1}, 
-			function (data) {
-			data = eval("("+data+")");
-			if(data.status){
-				layer.msg(data.msg, {icon: 1});
-				//按钮不可用 更改颜色、value
-			}else{
-				layer.alert(data.msg);
-			}
-		});
-	}
-	$('.cp-list').hover(function(){
+    //加入购物车
+    function add_cart(id){
+        $.ajax({
+            url:'../saveShop',
+            type:'POST',
+            data:{
+                id:id,
+                counts:1
+            },
+            success:function(){
+
+                layer.alert("加入购物车成功！");
+            }
+        })
+
+    }
+	$('.news-index-pricestyle').hover(function(){
 		$(this).find($('.cp-show')).css('zIndex',2)
 	},function(){
 		$(this).find($('.cp-show')).css('zIndex',-2)

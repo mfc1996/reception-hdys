@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)http://www.xb1y.com/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>秒杀商品</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/css.css"/>
+    <script src="../bootstrap/jquery.min.js"></script>
+    <script src="../js/jQuery-2.2.0.min.js"></script>
+    <script src="../js/layer.js"></script>
+    <link rel="stylesheet" href="../css/layer.css" id="layui_layer_skinlayercss" style=""/>
+    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+
+    <script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var Lis = document.getElementsByTagName("li");
+            for (i = 0; i < Lis.length; i++) {
+                Lis[i].onmouseover = function () {
+                    this.className = "lihover";
+                }
+
+                Lis[i].onmouseout = function () {
+                    this.className = "";
+                }
+            }
+
+        }
+    </script>
+
+    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" id="app">
+<div class="wrapper">
+    <header class="main-header">
+        <div class="logotop">
+            <div class="logotop-bar">
+                <div class="logotop-lf">
+                    Hi,欢迎来到韩都衣舍遇见心动❤
+                    <span>
+                【
+                <a href="http://192.168.0.118:8091/page/toLogin" id="dl" style="color: #e57816;"><span id="loginName">请先登录</span></a>
+                |
+                <a href="../toRef" id="zx"><span id="zhuxiao">注册</span></a>
+                                】
+            </span>
+                </div>
+                <ul class="logotop-rt">
+                    <li>服务热线：400-0097-600</li>
+                    <li><a href="javascript:toOrder()">我的订单 </a></li>
+                    <li><a href="javascrip:toShop()">我的购物车</a></li>
+                    <li><a href="../toHelp">帮助中心</a></li>
+                    <li><a href="../toCollect">收藏网站</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--logo栏目-->
+        <div class="logobox" style="overflow:initial;height:120px;">
+            <div class="logoimg">
+                <a href="#">
+                    <img src="../image/title.png" height="100" width="300"/><br>
+                    没空去韩国？就来韩都衣舍！
+                </a>
+            </div>
+            <div class="logobox-rt" style="overflow:initial">
+                <form action="#" method="get">
+                    <div class="search-box" style="overflow:initial">
+                        <input type="text" id="nsss" name="productName" placeholder="请输入关键字进行搜索">
+                        <button type="button" onclick="query()">搜索</button>
+                        <div class="input-xlbox" id="zhaode">
+
+
+
+                        </div>
+                    </div>
+
+                </form>
+                <script>
+                    //搜索
+                    function query(){
+                        var produ = $("#nsss").val();
+
+                        $.ajax({
+                            url:'../solr/search',
+                            pagination:true,
+                            pageNumber:1,
+                            pageSize:1,
+                            pageList:[1,2,5],
+                            method:"post",
+                            data:{
+
+                                productName:produ
+
+                            },
+                            success:function (data) {
+                                window.location.href="../toSearchProduct";
+                            }
+                        })
+
+
+                    }
+
+                    $("body").on("input propertychange",".ss-input",function(){
+                        var name=$(".ss-input").val();
+                        // alert(name);
+                        $.ajax({
+                            type:'post',
+                            url:"/index.php/Home/Index/see.html",
+                            data:{'name':name},
+                            success:function(data){
+                                if(data.state=='1'){
+                                    var html="";
+                                    //console.log(data.temp)
+                                    for(var i=0;i<data.temp.length;i++){
+                                        html +="<div class='xl-list' inclick>"+data.temp[i].goods_name +"</div>";
+                                    }
+
+                                    $("#zhaode").html(html);
+
+                                }
+                            }
+                        });
+
+                    })
+                    var text22 = '';
+                    $("#zhaode").on('mouseover',"div", function(){
+                        text22 = $(this).html()
+                        //$('.ss-input').val()
+                    })
+                    $('.ss-input').focus(function(){
+                        $('.input-xlbox').show();
+                        $('.input-xlbox').css('zIndex','999');
+                        $('.input-xlbox').css('opacity','1');
+                    });
+                    $('.ss-input').blur(function(){
+                        $('.input-xlbox').css('zIndex','-1');
+                        $('.input-xlbox').css('opacity','0');
+                        $(this).val(text22)
+                    });
+
+                </script>
+                <style>
+                    .input-xlbox{position: absolute;width:350px;top:41px;left:-1px;background:#fff;border:1px solid #ff912f;display:none;}
+                    .xl-list{width:100%;padding:5px;box-sizing:border-box;}
+                    .xl-list:hover{background:#f2f2f2}
+                </style>
+                <div style="float:right;">
+
+                    <a href="javascript:toShop()" class="myshopping">
+                        <img src="../image/index_08.png">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--导航-->
+        <div class="navbar">
+            <div class="navbox">
+                <ul class="navbar-list">
+                    <li><a href="../toHomePage">首页</a></li>
+                    <li><a href="../toShowProduct?typeId=2">上装</a></li>
+                    <li><a href="../toShowProduct?typeId=4">裙装</a></li>
+                    <li><a href="../toShowProduct?typeId=3">裤装</a></li>
+                    <li><a href="../toSpike">秒杀商品</a></li>
+                    <li><a href="#">会员制度</a></li>
+                    <li><a href="#">活动专区</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="xb-rightbox">
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/gr.png">
+                <a href="javascript:toInfo()">我的</a>
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/dd.png">
+                <a href="javascript:toOrder()">订单</a>
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/gwc.png">
+                <a href="javascript:toShop()">购物车</a>
+
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/tw.png">
+                <a href="../toRobot">客服</a>
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/sc.png">
+                <a href="../toCollect">收藏</a>
+            </div>
+        </a>
+    </div>
+    <style>
+        .xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #8ed4c16b;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
+        .xb-right_list{color:#fff;margin-top:50px;}
+        .xb-right_list img{width:36px;}
+        .xb-qq{margin:5px auto;width:20px;height:20px;border-radius:50%;background:#ff5a00;line-height:20px;font-size:12px;}
+    </style>
+
+    <div class="content-wrapper">
+
+        <section class="content-header">
+
+
+        </section>
+        <section class="content">
+            <div class="navpic-slider">
+                <script type="text/javascript">
+                    function toOrder(){
+                        var strCookie = document.cookie;
+                        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                            alert("请先登录");
+                            return;
+                        }else{
+                            location.href="../toOrder";
+                        }
+                    }
+                    function toInfo(){
+                        var strCookie = document.cookie;
+                        alert(strCookie);
+                        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                            alert("请先登录");
+                            return;
+                        }else{
+                            location.href="../toInfo";
+                        }
+                    }
+                    function toShop(){
+                        var strCookie = document.cookie;
+                        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                            alert("请先登录");
+                            return;
+                        }else{
+                            location.href="../toShop";
+                        }
+                    }
+                    $(function(){
+                        //获取cookie
+                        var strCookie = document.cookie;
+                        daoHang(strCookie);
+                        //利用cookie值查询用户名称
+                    })
+
+                    function daoHang(strCookie){
+                        var arr=strCookie.split("=");
+                        var userId ="";
+                        for (var i=0;i<arr.length;i++){
+                            userId= arr[arr.length-1];
+                        }
+                        $.ajax({
+                            url:'../queryLoginByName/'+userId,
+                            type:'get',
+                            data:{},
+                            dataType:'json',
+                            success:function(data){
+                                $("#loginName").text(data.names);
+                                $("#zhuxiao").text("注销");
+                                $("#zx").prop("href","javascript:clearCookie()");
+                                $("#dl").prop("href","../toInfo");
+                            }
+                        })
+                    }
+                    function clearCookie(){
+                        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+                        if (keys) {
+                            for (var i = keys.length; i--;) {
+                                document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
+                                document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
+                                document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
+                            }
+                        }
+                        $("#divcookie").html(document.cookie);
+                        alert('已清除');
+                        location.href="http://192.168.0.118:8091/page/toLogin";
+                    }
+                </script>
+            <!--中间的内容-->
+            <div class="index-container" id="001">
+                <div id="divv" style="background-color: #f3f3f3;height: 40px;width: 1200px;text-align: center;font-size: 30px;">
+                    <span id="_d"></span>
+                    <span id="_h"></span>
+                    <span id="_m" style="color:orangered"></span>
+                    <span id="_s" style="color:red"></span>
+                </div>
+                <div>
+                    <ul class="goods-box">
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        init();
+                        countTime();
+                    })
+                    function init(){
+                        $.ajax({
+                            url:'../querySeckill',
+                            type:'get',
+                            data:{},
+                            dataType:'json',
+                            success:function(data){
+                                var html="";
+                                for(var c=0;c<data.length;c++ ){
+                                    html+="<li>" +
+                                        "            <a href='#' target='_blank'>" +
+                                        "            <img src='"+data[c].img+"'>" +
+                                        "            <h3>"+data[c].name+"</h3>" +
+                                        "        <h3 class='news-index-pricestyle' style='text-indent: 0'>价格："+data[c].seckillPrice+"</h3> " +
+                                        "        </a><a href='javascript:void(0);' onclick='addProduct("+data[c].productId+")' class='active-addcars'>" +
+                                        "        加入购物车" +
+                                        "        </a> " +
+                                        "            </li>";
+                                }
+                                $(".goods-box").html(html);
+                            }
+                        })
+                    }
+                    function addProduct(productId){
+                        var strCookie = document.cookie;
+                        /*alert(strCookie);
+                        var arr=strCookie.split("=");
+                        var userIds ="";
+                        for (var i=0;i<arr.length;i++){
+                            userIds= arr[arr.length-1];
+                        }
+                        alert(userIds);*/
+                        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+                            alert("还没登录哦");
+                            return;
+                        }else{
+                            $.ajax({
+                                url:'../addCar',
+                                type:'post',
+                                data:{
+                                    spid:productId
+                                },
+                                success:function(){
+                                    alert("加入购物车成功！");
+                                }
+                            })
+                        }
+
+                    }
+                    function countTime() {
+                        $.ajax({
+                            url: '../jishi',
+                            type: 'post',
+                            data: {},
+                            dataType: "json",
+                            success: function (data) {
+                                var dqs = data.dq;
+                                var dat = data.start;
+
+                                var dates = dqs;
+                                var date = new Date(dates);
+                                var now = date.getTime();
+
+                                //设置截止时间
+                                var str = dat;
+                                var endDate = new Date(str);
+                                var end = endDate.getTime();
+
+                                //时间差
+                                var leftTime = end - now;
+                                //定义变量 d,h,m,s保存倒计时的时间
+                                var d, h, m, s;
+                                if (leftTime >= 0) {
+                                    d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
+                                    h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+                                    m = Math.floor(leftTime / 1000 / 60 % 60);
+                                    s = Math.floor(leftTime / 1000 % 60);
+                                }
+                                //将倒计时赋值到div中
+                                document.getElementById("_d").innerHTML = d + "天";
+                                document.getElementById("_h").innerHTML = h + "时";
+                                document.getElementById("_m").innerHTML = m + "分";
+                                document.getElementById("_s").innerHTML = s + "秒";
+                                //递归每秒调用countTime方法，显示动态时间效果
+                                setTimeout(countTime, 1000);
+                            }
+                        })
+                    }
+
+                    function toAdd(){
+                        $('#addSpan').dialog({
+                            title: '添加',
+                            width: 500,
+                            height: 600,
+                            href: 'toAddRole',
+                            modal: true,
+                            buttons:[{
+                                text:'保存',
+                                handler:function(){
+                                    $.ajax({
+                                        url:'addRole',
+                                        ype:'post',
+                                        data:$("#add_Role_Form").serialize(),
+                                        dataType:'json',
+                                        success:function(result){
+                                            if (result) {
+                                                $("#roleTable").datagrid("reload");
+                                            }else{
+                                                alert('添加失败');
+                                            }
+                                        },
+                                    })
+                                    $('#addSpan').dialog('close');
+                                }
+                            },{
+                                text:'关闭',
+                                handler:function(){
+                                    $('#addSpan').dialog('close');
+                                }
+                            }]
+                        });
+                    }
+
+                </script>
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!--底部内容-->
+<div class="footer-box">
+    <div class="footer-link" style="height:215px;">
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">购物指南  </li>
+
+            <li><a href="#">免费注册</a></li>
+            <li><a href="#">开通支付宝</a></li>
+            <li><a href="#">支付宝充值</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px; border-bottom:1.5px solid #fff">支付方式 </li>
+            <li><a href="#">快捷支付</a></li>
+            <li><a href="#">信用卡</a></li>
+            <li><a href="#">余额宝</a></li>
+            <li><a href="#">蚂蚁花呗</a></li>
+            <li><a href="#">货到付款</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">配送服务 </li>
+            <li><a href="#">上门自提</a></li>
+            <li><a href="#">限时配送</a></li>
+            <li><a href="#">配送服务查询</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">售后服务 </li>
+            <li><a href="#">退货规则</a></li>
+            <li><a href="#">退货流程</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">关于我们</li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">店铺简介</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">帮助中心</li>
+            <li><a href="#">密码找回</a></li>
+            <li><a href="#">密码修改</a></li>
+            <li><a href="#">意见与反馈</a></li>
+        </ul>
+        <div class="erweima-box">
+            <img src="../image/erweima.png">
+            <p>扫描关注，微信二维码</p>
+        </div>
+    </div>
+    <div style="padding:15px;font-size:15px;text-align: center;color:#fff"><img src="../image/jingca.png">浙公网安备 33010002000120号</div>
+</div>
+</body></html>

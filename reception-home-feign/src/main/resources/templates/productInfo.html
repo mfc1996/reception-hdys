@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/924.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>宝贝详情</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/css.css">
+    <script src="../js/jquery.min.js"></script>
+<script src="../js/jQuery-2.2.0.min.js"></script>
+    <script src="../bootstrap/bootstrap3/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../bootstrap/bootstrap3/css/bootstrap.css">
+<script src="../js/layer.js"></script>
+    <link rel="stylesheet" href="../css/layer.css" id="layui_layer_skinlayercss" style="">
+
+    <script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+
+    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/favicon.ico" media="screen"/>
+<link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/favicon.ico" media="screen">
+
+    
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/classification-style.css">
+<!--商品图片展示代码-->
+<link rel="stylesheet" href="../css/smoothproducts.css">
+<link rel="stylesheet" href="../css/comment.css">
+
+<script src="../js/jquery.zclip.min.js"></script>
+
+<script type="text/javascript">
+
+</script>
+<!--分享 -->
+    <link rel="stylesheet" href="../css/share.css">
+<style>
+
+                            .kehupingjia-box{
+                                width: 95%;
+                                overflow: hidden;
+                                border-top: 1px solid #f7f7f7;
+                                border-bottom: 1px solid #f7f7f7;
+                                margin:10px auto;
+                            }
+                            .kehupingjia-boxlf{
+                                width: 80%;
+                                float: left;
+                            }
+                            .kehupingjai-boxrt{
+                                width: 20%;
+                                float: left;
+                            }
+                            .khpj-toptext{
+                                width: 100%;
+                                overflow: hidden;
+                            }
+                            .khpj-text-tit{
+                                width: 100%;
+                                color: #666;
+                            }
+                            .khpj-imglist{
+                                width: 100%;
+                                overflow: hidden;
+                                border-bottom: none!important;
+                            }
+                            .khpj-imglist li{
+                                float: left;
+                                margin: 10px;
+                                border: 1px solid #f7f7f7;
+                                background-color: #dbdbdb;
+                                width: 50px!important;
+                                height: 50px!important;
+                            }
+                            .khpj-imglist li img{
+                                width: 48px;
+                                height: 48px;
+                            }
+                            .data-khpj-riqi{
+                                width: 100%;
+                                line-height: 36px;
+                                color: #999;
+                            }
+                            .kehupingjai-boxrt p{
+                                line-height: 36px;
+                                color: #666;
+                                text-align: center;
+                                background-color: #f7f7f7;
+                                margin-top: 20px;
+                            }
+							
+							.pagination .active{
+							  background:green;
+							 
+							}
+						   .pagination .active a{
+							 
+							  color:#fff;
+							}
+							.pagination .paginate_button{
+							  width:60px;
+							  height:30px;
+							}
+							.pagination .paginate_button a{
+							  width:60px;
+							  height:30px;
+							  line-height:33px;
+							  text-align:center;
+							}
+
+</style>
+	<script>
+        $(document).ready(function(){
+//获得文本框对象
+            var t = $("#text_box");
+//初始化数量为1,并失效减
+            $('#min').attr('disabled',true);
+			 var h="1000";
+			
+            //数量增加操作
+            $("#add").click(function(){
+			   if(t.val()==''){
+                	t.val(1);
+                	return false;
+                }
+				
+				if(t.val() == h){
+					 $('#add').attr('disabled',true);
+                    return false;
+				}
+				 t.val(parseInt(t.val())+1);	   
+					 
+				
+				
+            })
+            //数量减少操作
+            $("#min").click(function(){
+            	if(t.val()==''){
+                	t.val(1);
+                	return false;
+                }
+                if (t.val()==1){
+                    $('#min').attr('disabled',true);
+                    return false;
+                }
+                t.val(parseInt(t.val())-1);
+            })
+
+        });
+    </script>
+
+    <link rel="shortcut  icon" type="image/x-icon" href="http://www.xb1y.com/index.php/Home/Goods/goodInfo/id/favicon.ico" media="screen">
+<script src="../js/share.js"></script><link rel="stylesheet" href="../css/share_style1_32.css"></head>
+<body class="hold-transition skin-blue sidebar-mini" id="app" style="">
+<div class="wrapper">
+    <header class="main-header">
+        <div class="logotop">
+            <div class="logotop-bar">
+                <div class="logotop-lf">
+                    Hi,欢迎来到韩都衣舍遇见心动❤
+                    <span>
+                【
+                <a href="http://192.168.0.118:8091/page/toLogin" id="dl" style="color: #e57816;"><span id="loginName">请先登录</span></a>
+                |
+                <a href="../toRef" id="zx"><span id="zhuxiao">注册</span></a>
+                                】
+            </span>
+                </div>
+                <ul class="logotop-rt">
+                    <li>服务热线：400-0097-600</li>
+                    <li><a href="javascript:toOrder()">我的订单 </a></li>
+                    <li><a href="javascrip:toShop()">我的购物车</a></li>
+                    <li><a href="../toHelp">帮助中心</a></li>
+                    <li><a href="../toCollect">收藏网站</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--logo栏目-->
+        <div class="logobox" style="overflow:initial;height:120px;">
+            <div class="logoimg">
+                <a href="#">
+                    <img src="../image/title.png" height="100" width="300"/><br>
+                    没空去韩国？就来韩都衣舍！
+                </a>
+            </div>
+            <div class="logobox-rt" style="overflow:initial">
+                <form action="#" method="get">
+                    <div class="search-box" style="overflow:initial">
+                        <input type="text" id="nsss" name="productName" placeholder="请输入关键字进行搜索">
+                        <button type="button" onclick="query()">搜索</button>
+                        <div class="input-xlbox" id="zhaode">
+
+
+
+                        </div>
+                    </div>
+
+                </form>
+                <script>
+                    //搜索
+                    function query(){
+                        var produ = $("#nsss").val();
+
+                        $.ajax({
+                            url:'../solr/search',
+                            pagination:true,
+                            pageNumber:1,
+                            pageSize:1,
+                            pageList:[1,2,5],
+                            method:"post",
+                            data:{
+
+                                productName:produ
+
+                            },
+                            success:function (data) {
+                                window.location.href="../toSearchProduct";
+                            }
+                        })
+
+
+                    }
+
+                    $("body").on("input propertychange",".ss-input",function(){
+                        var name=$(".ss-input").val();
+                        // alert(name);
+                        $.ajax({
+                            type:'post',
+                            url:"/index.php/Home/Index/see.html",
+                            data:{'name':name},
+                            success:function(data){
+                                if(data.state=='1'){
+                                    var html="";
+                                    //console.log(data.temp)
+                                    for(var i=0;i<data.temp.length;i++){
+                                        html +="<div class='xl-list' inclick>"+data.temp[i].goods_name +"</div>";
+                                    }
+
+                                    $("#zhaode").html(html);
+
+                                }
+                            }
+                        });
+
+                    })
+                    var text22 = '';
+                    $("#zhaode").on('mouseover',"div", function(){
+                        text22 = $(this).html()
+                        //$('.ss-input').val()
+                    })
+                    $('.ss-input').focus(function(){
+                        $('.input-xlbox').show();
+                        $('.input-xlbox').css('zIndex','999');
+                        $('.input-xlbox').css('opacity','1');
+                    });
+                    $('.ss-input').blur(function(){
+                        $('.input-xlbox').css('zIndex','-1');
+                        $('.input-xlbox').css('opacity','0');
+                        $(this).val(text22)
+                    });
+
+                </script>
+                <style>
+                    .input-xlbox{position: absolute;width:350px;top:41px;left:-1px;background:#fff;border:1px solid #ff912f;display:none;}
+                    .xl-list{width:100%;padding:5px;box-sizing:border-box;}
+                    .xl-list:hover{background:#f2f2f2}
+                </style>
+                <div style="float:right;">
+
+                    <a href="javascript:toShop()" class="myshopping">
+                        <img src="../image/index_08.png">
+                        我的购物车
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--导航-->
+        <div class="navbar">
+            <div class="navbox">
+                <ul class="navbar-list">
+                    <li><a href="../toHomePage">首页</a></li>
+                    <li><a href="../toShowProduct?typeId=2">上装</a></li>
+                    <li><a href="../toShowProduct?typeId=4">裙装</a></li>
+                    <li><a href="../toShowProduct?typeId=3">裤装</a></li>
+                    <li><a href="../toSpike">秒杀商品</a></li>
+                    <li><a href="#">会员制度</a></li>
+                    <li><a href="#">活动专区</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="xb-rightbox">
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/gr.png">
+                <a href="javascript:toInfo()">我的</a>
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/dd.png">
+                <a href="javascript:toOrder()">订单</a>
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/gwc.png">
+                <a href="javascript:toShop()">购物车</a>
+
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/tw.png">
+                <a href="../toRobot">客服</a>
+            </div>
+        </a>
+        <a href="#">
+            <div class="xb-right_list">
+                <img alt="" src="../image/sc.png">
+                <a href="../toCollect">收藏</a>
+            </div>
+        </a>
+    </div>
+    <style>
+        .xb-rightbox{width:50px;height:655px;position: fixed;right:0;top:15%;background: #8ed4c16b;border-radius: 5px;padding:0 2.5px;box-sizing:border-box;color:#fff;text-align:center;}
+        .xb-right_list{color:#fff;margin-top:50px;}
+        .xb-right_list img{width:36px;}
+        .xb-qq{margin:5px auto;width:20px;height:20px;border-radius:50%;background:#ff5a00;line-height:20px;font-size:12px;}
+    </style>
+<style>
+.xb-right_list img{width:36px;}
+</style>
+    <div class="content-wrapper">
+    <section class="content-header">
+        
+
+    </section>
+    <section class="content">
+
+<!--商品详情-->
+<div class="pro-infobigbox">
+    <!--左边的内容-->
+    <div class="pro-infobox">
+        <!--商品图片内容-->
+        <div class="pro-info-top">
+            <!--左边的图片展示-->
+            <div class="proinfotop-img">
+                <div class="page-imgpro">
+                    <div class="sp-wrap" style="display: inline-block;">
+                    	                    <div class="sp-large">
+                                                <a href="#" class="">
+                                                    <img ng-src="#" alt="" itemprop="" src="#" id="img1" name="productImg"/>
+                                                </a>
+                                            </div>
+                        <div style="" class="sp-thumbs sp-tb-active">
+                            <a href="#" class="sp-current">
+                                <img ng-src="#" alt="" itemprop="" src="#" id="img2" name="productImg"/>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="proiinfo-imgbtn">
+                        <li style="width: 70%">
+                            <div class="share-dialog">
+                                <div class="share-dialog-cont">
+                                    <div class="share-platform">
+                                        <div class="share-platform-l"> <img src="../image/pro_03.png">我要分享:</div>
+                                        <div class="share-platform-r">
+                                            <div class="bdsharebuttonbox bdshare-button-style1-32" data-bd-bind="1555749149161">
+                                                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                                <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                                                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </li>
+                     
+                          
+                       
+                        <li style="float: right;">
+                            <a href="javascript:void(0);" id="goods"><img src="../image/pro-info_18.png">收藏商品</a>
+                           <a href="#">我要投诉</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--右边的内容展示-->
+            <div class="proinfotop-rt">
+                <div class="proinfo-rttop">
+                    <h2><span id="productName"></span></h2>
+                    <p>2019年最新款，穿出不一样的感觉                  	                    </p>
+                </div>
+                <div class="proinfotop-price">
+                    <dl>
+                        <dt>价格：</dt>
+						                          <dd>￥<span id="productPrice"></span></dd>                    </dl>
+                    <dl>
+                        <dt>优惠度：</dt>
+                                                <dd style="color: #666;text-decoration: line-through">0.9</dd>                    </dl>
+                    <p class="procuxiaoiinfo">现在购买将在7天后送达</p>
+                </div>
+                <div class="proinfo-xq">
+
+                    <dl>
+                        <dt>商品颜色：  </dt>
+                        <dd><span id="attributeColorClassification1"></span></dd>
+                    </dl>
+                    <dl>
+                        <dt>商品类型：  </dt>
+                        <dd><span id="typeId"></span></dd>
+                    </dl>
+
+                    <dl>
+                        <dt>数量：   </dt>
+                        <dd>
+                            <div class="proinfobox-numadd">
+                                <a href="javascript:void(0);" id="min" disabled="disabled">-</a>
+                                <input id="text_box" type="text" value="1">
+                                <a href="javascript:void(0);" id="add">+</a>
+                            </div>
+
+                        </dd>
+                        <dl>
+                            <dt><p>库存：</p></dt>
+                            <dd><span id="stock" style="float: left;padding-left: 20px;color: #666;"></span></dd>
+                        </dl>
+                    </dl>
+                    <p class="little-notice">
+                       	 小提示：15天包退换
+                    </p>
+                                        <div class="proiinfo-btnbox">
+                    	<a href="javascript:void(0);" id="buyNow">立即购买</a>
+                        <a href="javascript:void(0);" id="add_cart" class="proinfo-addcarlink">加入购物车</a>
+                                            </div>
+
+                </div>
+
+            </div>
+        </div>
+        <script>
+            $(function(){
+                $.ajax({
+                    url:"../queryProductById/"+[[${productId}]],
+                    type:'get',
+                    async:false,
+                    data:{},
+                    success:function(data){
+                        $("#productId").val(data.productId);
+                        $("#img1").attr("src",data.productImg);
+                        $("#img2").attr("src",data.productImg);
+                        $("#productName").text(data.productName);
+                        $("#productPrice").text(data.productPrice);
+                        $("#typeId").text(data.typeName);
+                        $("#stock").text(data.productStockName);
+                    }
+                })
+            })
+
+        </script>
+        <form id="frm" action="#" method="post">
+        	<input type="hidden" name="goods_id[]" value="924">
+        	<input type="hidden" id="form_goods_num" name="goods_num[]" value="">
+        </form>
+        <!--tab切换内容-->
+        <div class="proinfo-toptextab" id="proinfo-toptextab">
+            <script type="text/javascript">
+
+                $(document).ready(function() {
+
+                //Default Action
+                $(".tab_content").hide(); //Hide all content
+                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+                $(".tab_content:first").show(); //Show first tab content
+
+                //On Click Event
+        $("ul.tabs li").click(function() {
+                    $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".tab_content").hide(); //Hide all tab content
+                var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active content
+                return false;
+                });
+
+                });
+            </script>
+
+            <div class="proinfo-tabtit">
+                <ul class="tabs">
+                    <li class="active"><button class="btn btn-default" onclick="info()">商品详情</button></li>
+                    <li><button class="btn btn-default" onclick="pinglun()">用户评论</button></li>
+                </ul>
+                <style>
+                    .pro-boxcontent-info{
+                        width: 95%;
+                        margin: 10px auto;
+                        border-top: 1px solid #f7f7f7;
+                        overflow: hidden;
+                        border-bottom: 1px solid #f7f7f7;
+                    }
+                    .pro-boxcontent-info img{
+                        width: 90%;
+                        margin: 0 auto;
+                    }
+
+                    .pro-boxcont-infolf{
+                        width: 20%;
+                        float: left;
+                        background-color: #ffaa5e;
+                        text-align: center;
+                        color: #FFFFFF;
+                    }
+                    .pro-boxcont-infort{
+                        width: 78%;
+                        float: left;
+                        padding-left: 2%;
+                        background-color: #fff;
+                    }
+                </style>
+                <div class="tab_container">
+                    <div id="tab1" class="tab_content" style="display: block; padding-left: 3px;">
+                        <div class="pro-boxcontent-info">
+                            <h3 class="pro-boxcont-infolf"><b>关于快递</b></h3>
+                            <p class="pro-boxcont-infort">小店默认使用韵达  如果需要其他快递请留言说明 补拍运费差价哦</p>
+                        </div>
+
+                        <div class="pro-boxcontent-info">
+                            <h3 class="pro-boxcont-infolf"><b>关于色差</b></h3>
+                            <p class="pro-boxcont-infort">本店实物拍摄，我们尽量减少色差
+                                但是由于显示器不同，拍摄光线不等原因
+                                都会存在色差
+                                请多包含,介意者慎拍</p>
+                        </div>
+                        <div class="pro-boxcontent-info">
+                            <h3 class="pro-boxcont-infolf"><b>关于退换</b></h3>
+                            <p class="pro-boxcont-infort">小店支持七天无理由退换服务
+                                收到货七天内可联系退换
+                                非质量问题需自付运费
+                                质量问题退换小店成担运费</p>
+                        </div>
+                        <div class="pro-boxcontent-info">
+                            <h3 class="pro-boxcont-infolf"><b>关于服务</b></h3>
+                            <p class="pro-boxcont-infort">早上9：00--晚22：00在线售后
+                                收到宝贝如果有问题请联系我们</p>
+                        </div>
+                       <div class="pro-boxcontent-info">
+                            <h3 class="pro-boxcont-infolf"><b>小提示</b></h3>
+                            <p class="pro-boxcont-infort">如果货到满意的话，一定记得给好评哦</p>
+                       </div>
+                        <div class="pro-boxcontent-info">
+                            <h3 class="pro-boxcont-infolf"><b>宝贝规格</b></h3>
+                            <p class="pro-boxcont-infort">
+                                <table width="600px">
+                                    <tr>
+                                        <td>产品品牌：<span id="attributeBrand"></span></td>
+                                        <td>面料：<span id="attributeFabric"></span></td>
+                                        <td>适用年龄：<span id="attributeAgeOfApplication"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>风格：<span id="attributeStyle"></span></td>
+                                        <td>成分含量：<span id="attributeComponentContent"></span></td>
+                                        <td>款式设计：<span id="attributeDesign"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>衣长：<span id="attributeClothingLength"></span></td>
+                                        <td>尺码：<span id="attributeSize"></span></td>
+                                        <td>颜色分类：<span id="attributeColorClassification"></span></td>
+                                    </tr>
+                                </table>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab_content" style="display: none; ">
+                        <div class="kehupingjia-box">
+                                66666666
+                        </div>
+                    </div>
+                </div>
+<script>
+    $(function(){
+        $("#tab1").show();
+        $("#tab2").hide();
+    })
+
+    function info(){
+        $("#tab1").show();
+        $("#tab2").hide();
+    }
+    function pinglun(){
+        $("#tab1").hide();
+        $("#tab2").show();
+    }
+    function toOrder(){
+        var strCookie = document.cookie;
+        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+            alert("请先登录");
+            return;
+        }else{
+            location.href="../toOrder";
+        }
+    }
+    function toInfo(){
+        var strCookie = document.cookie;
+        alert(strCookie);
+        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+            alert("请先登录");
+            return;
+        }else{
+            location.href="../toInfo";
+        }
+    }
+    function toShop(){
+        var strCookie = document.cookie;
+        if(strCookie=="userId=null"||strCookie ==""||strCookie==null) {
+            alert("请先登录");
+            return;
+        }else{
+            location.href="../toShop";
+        }
+    }
+    $(function(){
+        //获取cookie
+        var strCookie = document.cookie;
+        daoHang(strCookie);
+        //利用cookie值查询用户名称
+    })
+
+    function daoHang(strCookie){
+        var arr=strCookie.split("=");
+        var userId ="";
+        for (var i=0;i<arr.length;i++){
+            userId= arr[arr.length-1];
+        }
+        $.ajax({
+            url:'../queryLoginByName/'+userId,
+            type:'get',
+            data:{},
+            dataType:'json',
+            success:function(data){
+                $("#loginName").text(data.names);
+                $("#zhuxiao").text("注销");
+                $("#zx").prop("href","javascript:clearCookie()");
+                $("#dl").prop("href","../toInfo");
+            }
+        })
+    }
+    function clearCookie(){
+        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if (keys) {
+            for (var i = keys.length; i--;) {
+                document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
+                document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
+                document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
+            }
+        }
+        $("#divcookie").html(document.cookie);
+        alert('已清除');
+        location.href="http://192.168.0.118:8091/page/toLogin";
+    }
+
+    $(function(){
+        $.ajax({
+            url:"../queryAttribute/"+[[${productId}]],
+            type:'get',
+            async:false,
+            data:{ },
+            success:function(data){
+                $("#productId").val(data.productId);
+                $("#typeId").val(data.typeId);
+                $("#attributeBrand").text(data.attributeBrand);
+                $("#attributeFabric").text(data.attributeFabric);
+                $("#attributeAgeOfApplication").text(data.attributeAgeOfApplication);
+                $("#attributeStyle").text(data.attributeStyle);
+                $("#attributeComponentContent").text(data.attributeComponentContent);
+                $("#attributeDesign").text(data.attributeDesign);
+                $("#attributeClothingLength").text(data.attributeClothingLength);
+                $("#attributeSize").text(data.attributeSize);
+                $("#attributeColorClassification").text(data.attributeColorClassification);
+                $("#attributeColorClassification1").text(data.attributeColorClassification);
+            }
+        })
+    })
+    // 点击分页触发的事件  点击页码ajax获取当前页码下的列表
+    $(".pagination  a").click(function(){
+    	var index = layer.load(2);//js加载条提示  
+        cur_page = $(this).data('p');
+        ajax_get_table('search-form2',cur_page,index);//index为加载条变量
+    });
+</script></div>
+				</div>
+			</div>
+		</div>
+    <!--右边的内容 -->
+    <div class="pro-info-rt">
+        <!--店铺信息-->
+        <div class="dianpuinfobox">
+            <h1>店铺信息</h1>
+            <div class="dianpu-name">
+                <a href="#">我小马哥天下无敌</a>
+                <ul>
+                    <li><img src="../image/pro-info_07.png" alt=""></li>
+                    <li><img src="../image/pro-info_07.png" alt=""></li>
+                    <li><img src="../image/pro-info_07.png" alt=""></li>
+                    <li><img src="../image/pro-info_07.png" alt=""></li>
+                    <li><img src="../image/pro-info_07.png" alt=""></li>
+                </ul>
+            </div>
+            <ul class="wuliulist">
+                <li>描述<br>0.00分</li>
+                <li>服务<br>0.00分</li>
+                <li style="border-right: 0;">物流<br>0.00分</li>
+            </ul>
+            <dl class="pro-contactlink">
+                <dt>联系客服：</dt>
+                <dd>
+                    <a href="javascript:void(0);" onclick="service()">在线客服</a>
+                </dd>
+            </dl>
+            <ul class="pro-colectlink">
+                <li><a href="javascript:void(0);" id="store"><img src="../image/pro-info_18.png">收藏店铺</a></li>
+                <li><a href="#"><img src="../image/pro-info_15.png">进入店铺</a></li>
+            </ul>
+
+        </div>
+        <!--店铺药品分类-->
+        <div class="pro-classfiy">
+            <h2>店铺商品分类</h2>
+            <ul>
+                <li><a href="#">连衣裙<span>&gt;</span></a></li>
+                <li><a href="#">上装<span>&gt;</span></a></li>
+                <li><a href="#">下装<span>&gt;</span></a></li>
+                <li><a href="#">最潮款<span>&gt;</span></a></li>
+            </ul>
+        </div>
+        <!--店铺药品推荐-->
+        <div class="prohottuijian">
+            <h3>店铺商品推荐</h3>
+            <ul>
+            	            </ul>
+        </div>
+    </div>
+</div>
+</div>
+    </section>
+    </div>
+
+</div>
+   <form action="#" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
+     <input type="hidden" name="goods_id" value="924">
+   </form>
+
+<script>
+	$(function(){
+		var index = layer.load(2);//js加载条提示
+		ajax_get_table('search-form2',1,index);  //index为加载条变量
+	})
+	
+	
+	 //  page 为当前第几页  index为加载条变量
+	    function ajax_get_table(tab,page,index){
+			cur_page = page; //当前页面 保存为全局变量
+	            $.ajax({
+	                type : "POST",
+	                url:"/index.php/Home/Goods/ajax_commentList/p/"+page,//+tab,	
+	                data : $('#'+tab).serialize(),// 你的formid
+	                success: function(data){
+						//alert(data);
+	                	//关闭
+						//alert('success');
+	                	layer.close(index);  
+	                	//$('#data_jiazai_buyinfo').hide();
+	                    $("#ajax_comment_List").html('');
+	                    $("#ajax_comment_List").append(data);
+	                },
+	                error:function(data,s,dd){
+	                	layer.close(index);
+	                }
+	            
+	            });
+	   }
+   
+</script>
+<script>
+//收藏店铺
+$('#store').click(
+   	function collect(){
+ 		$.post("/index.php/Home/Store/collect.html", { id:"46"}, 
+				function (data) {
+ 				data = eval("("+data+")");
+ 				if(data.status){
+ 					//收藏成功
+ 					layer.msg(data.msg);
+ 					$('#store').text(data.btn);
+ 				}else{
+ 					//收藏失败
+ 					layer.alert(data.msg);
+ 				}
+ 			});
+   	}		
+);
+//客服
+function service(){
+	$.get("/index.php/Home/Goods/getQQ.html",{id:"46"},function(data){
+		
+		if(data.status){
+			window.location=data.url;
+		}else{
+			layer.alert(data.msg);
+		}
+	});
+}
+//收藏商品
+$('#goods').click(
+   	function collect(){
+ 		$.post("/index.php/Home/Goods/collect.html", {id:"924"}, 
+				function (data) {
+ 				data = eval("("+data+")");
+ 				if(data.status){
+ 					//收藏成功
+ 					layer.msg(data.msg);
+ 					$('#goods').text(data.btn);
+ 				}else{
+ 					//收藏失败
+ 					layer.alert(data.msg);
+ 				}
+ 			});
+   	}		
+);
+//加入购物车
+$('#add_cart').click(function(){
+	var num = $('#text_box').val();
+	if(num==''){
+		layer.msg('商品数量必须大于于1');
+		return false;
+	}
+	$.post("/index.php/Home/Goods/add_cart.html", {id:"924",num:num}, 
+			function (data) {
+			data = eval("("+data+")");
+			if(data.status){
+				layer.msg(data.msg, {icon: 1});
+				//按钮不可用 更改颜色、value
+			}else{
+				layer.alert(data.msg);
+			}
+		});
+	
+});
+</script>
+
+<!--底部内容-->
+<div class="footer-box">
+    <div class="footer-link" style="height:215px;">
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">购物指南  </li>
+
+            <li><a href="#">免费注册</a></li>
+            <li><a href="#">开通支付宝</a></li>
+            <li><a href="#">支付宝充值</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px; border-bottom:1.5px solid #fff">支付方式 </li>
+            <li><a href="#">快捷支付</a></li>
+            <li><a href="#">信用卡</a></li>
+            <li><a href="#">余额宝</a></li>
+            <li><a href="#">蚂蚁花呗</a></li>
+            <li><a href="#">货到付款</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">配送服务 </li>
+            <li><a href="#">上门自提</a></li>
+            <li><a href="#">限时配送</a></li>
+            <li><a href="#">配送服务查询</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">售后服务 </li>
+            <li><a href="#">退货规则</a></li>
+            <li><a href="#">退货流程</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">关于我们</li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">店铺简介</a></li>
+        </ul>
+        <ul class="footer-linka">
+            <li style="font-size:18px;border-bottom:1.5px solid #fff">帮助中心</li>
+            <li><a href="#">密码找回</a></li>
+            <li><a href="#">密码修改</a></li>
+            <li><a href="#">意见与反馈</a></li>
+        </ul>
+        <div class="erweima-box">
+            <img src="../image/erweima.png">
+            <p>扫描关注，微信二维码</p>
+        </div>
+    </div>
+    <div style="padding:15px;font-size:15px;text-align: center;color:#fff"><img src="../image/jingca.png">浙公网安备 33010002000120号</div>
+</div>
+</body></html>

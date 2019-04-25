@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" id="ding"></div>
+    <div class="row" id="cen">
+        <div class="col-md-2" style="height:150px"></div>
+        <div class="col-md-8" style="height:150px">
+            <form id="commentForm">
+            评论：<textarea id="commentInfo" cols="50"  rows="5" onkeydown="tst()"></textarea>
+            <!--<input type="text" id="neirong" onkeydown="tst()"/>-->
+            <span id="show"  style="color:red"></span>
+            </form>
+        </div>
+        <div class="col-md-2" style="height:200px"></div>
+    </div>
+    <div class="row" id="di"></div>
+</div>
+</body>
+<script>
+    function tst(){
+        var count = $("#commentInfo").val();
+        var size = count.length;
+        /*var show = $("#show").val();*/
+        /* var a = document.getElementById("A");
+         var b = document.getElementById("B");*/
+        if(size<200){
+            var e= 200- size;
+            /*b.innerHTML=;*/
+            $("#show").text("还可以输入"+e+"字符");
+        }else{
+            var e= size;
+            /*b.innerHTML="已输入字符"+e;*/
+            $("#show").text("已输入字符"+e);
+        }
+    }
+</script>
+</html>

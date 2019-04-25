@@ -2,16 +2,105 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jk.mapper.HomeMapper">
+    <!--悬浮菜单-->
     <select id="queryType" parameterType="int" resultType="com.jk.model.Type">
         select * from h_type where pid = #{pid}
     </select>
+    <!--查询商品-->
     <select id="queryProduct" resultType="com.jk.model.Product">
-        select * from h_product
+        select p.*,t.text as typeName,s.stockName as productStockName from h_product p
+        left join h_type t on p.typeId = t.id
+        left join h_stock s on p.productStockId = s.stockId
     </select>
+    <!--根据用户id回显用户信息-->
     <select id="queryProductById" parameterType="int" resultType="com.jk.model.Product">
-        select * from h_product where productId = #{productId}
+        select p.*,t.text as typeName,s.stockName as productStockName from h_product p
+        left join h_type t on p.typeId = t.id
+        left join h_stock s on p.productStockId = s.stockId
+         where p.productId = #{productId}
     </select>
+    <!--查询店铺-->
     <select id="queryStore" resultType="com.jk.model.Store">
         select * from h_store
     </select>
+    <!--查询轮播图-->
+    <select id="queryImg" resultType="com.jk.model.Lun">
+        select lunImg from h_lun
+    </select>
+    <!--查询订单-->
+    <select id="queryOrder" parameterType="com.jk.model.Order" resultType="com.jk.model.Order">
+        select * from h_order o
+        left join h_user u on o.userId = u.userId
+        where 1=1
+        <if test="order.orderStatus !=null and order.orderStatus !=''">
+            and o.orderStatus = #{order.orderStatus}
+        </if>
+        order by o.orderTime desc
+    </select>
+    <!--修改状态-->
+    <update id="updateStatus" parameterType="java.lang.String">
+        update h_order set orderStatus = #{orderStatus} where id = #{id}
+    </update>
+    <!--根据类型查询属性-->
+    <select id="queryAttribute" parameterType="int" resultType="com.jk.model.Attribute">
+        select * from h_attribute a
+         where a.typeId = #{typeId}
+    </select>
+    <!--根据产品id回显商品-->
+    <select id="queryProdutType" parameterType="int" resultType="int">
+        select p.typeId from h_product p
+         where p.productId = #{productId}
+    </select>
+    <!--根据类型id回显产品-->
+    <select id="queryProductByTypeId" parameterType="int" resultType="com.jk.model.Product">
+        select p.*,t.text as typeName from h_product p
+        left join h_type t on p.typeId = t.id
+         where p.typeId = #{typeId}
+    </select>
+    <!--回显用户信息-->
+    <select id="findByIdUser" parameterType="int" resultType="com.jk.model.UserBean">
+	  select * from h_user where userId=#{userId}
+    </select>
+    <!-- 修改用户信息 -->
+    <update id="updateUser" parameterType="com.jk.model.UserBean">
+        update h_user u set u.userName=#{userName},u.userAge=#{userAge},u.userAccount=#{userAccount},u.userPhone=#{userPhone},u.userQQAccount=#{userQQAccount},u.userSex=#{userSex} where u.userId=1
+    </update>
+    <select id="selectCar" resultType="com.jk.model.Product">
+        select * from h_product t where t.productid=#{spid}
+    </select>
+    <!--查询-->
+    <select id="querySeckill"  resultType="com.jk.model.SpikeBean">
+      select hs.id as id,hp.productName as name,hp.productImg as img,
+      hp.productStockId as productStock,
+      hs.seckillPrice as seckillPrice
+      from h_spike hs,h_product hp where hs.productId = hp.productId
+  </select>
+    <!--新增-->
+    <insert id="addSeckill" parameterType="com.jk.model.WebShoppingcCart">
+     insert into h_webshoppingccart(cartid ,adddate)
+       values(#{cartid},#{adddate})
+  </insert>
+    <!-- 秒杀时间倒计时 -->
+    <select id="findSeckillDate" resultType="com.jk.model.SpikeBean">
+      select startDate from h_spike
+    </select>
+    <select id="queryByGoodId" parameterType="int" resultType="com.jk.model.Product">
+      select productName,productPrice,productImg from h_product where productId = #{goodId}
+    </select>
+    <insert id="saveOrders" parameterType="com.jk.model.Order">
+        insert into h_order(orderId,orderName,orderPrice,orderImg,orderStatus,productId)
+        values(#{orderId},#{orderName},#{orderPrice},#{orderImg},#{orderStatus},#{productId})
+    </insert>
+    <select id="queryProductByIds" parameterType="int" resultType="com.jk.model.Product">
+        select * from h_product p
+         where p.productId = #{spid}
+    </select>
+    <select id="queryLoginByName" parameterType="int" resultType="string">
+        select u.userName from h_user u where u.userId = #{userId}
+    </select>
+    <!--初始化物流信息-->
+    <select id="findLogistics" resultType="com.jk.model.Logistics">
+        select logisticsId ,logisticsName from h_logistics
+    </select>
+
 </mapper>
