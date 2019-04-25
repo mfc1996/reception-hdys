@@ -53,9 +53,8 @@
         <!--<li class="myshopcar-count">合计</li>-->
         <li class="myshop-itemlist">操作</li>
     </ul>
-    <form method="post" action="http://www.xb1y.com/index.php/Home/Goods/user_cart2.html" id="form_id">
-    <div class="myshoppro-list">
-
+    <form method="post">
+    <div id="myshoppro-list"></div>
     </div>	    <ul class="myshopcar-topbox" style="margin:20px 0;">
 
         <li class="myshopcar-choise">
@@ -67,17 +66,26 @@
         <li class="myshop-procom"><a href="http://www.xb1y.com/index.php/Home/Goods/user_cart.html#">继续购物</a></li>
         <li class="myshop-proper" style="width: 200px;">已选商品：<span style="color: #ff1c1c;padding:0 10px;font-weight: bold" id="count">0</span>件</li>
         <li class="myshop-discount" style="width: 280px">合计(不含运费)：<span style="color: #ff1c1c;padding:0 10px;font-weight: bold;font-size: 16px">￥<span id="total">0.00</span></span></li>
-        <li class="myshop-money"><a href="javascript:void(0);" id="bill">结算</a></li>
+        <li class="myshop-money"><a href="javascript:zhifu()">结算</a></li>
     </ul>
 	</form>
 </div>
  <!--全选-->
     <script language="JavaScript" type="text/javascript">
+        function zhifu() {
+            var money=$("#total").text();
+            var productId =$("#productid").text();
+            alert(productId)
+            window.location.href="../pay?money="+money;
+        }
         function changeState(isChecked)
         {
+
             var chk_list=document.getElementsByTagName("input");
+
             for(var i=0;i<chk_list.length;i++)
             {
+                alert(chk_list[i].name)
                 if(chk_list[i].type=="checkbox")
                 {
                     chk_list[i].checked=isChecked;
@@ -128,6 +136,18 @@
 	if(mm.find("input[type='checkbox']").is(':checked')){
 		$('#total').text((($('#total').text()*100+price*100)/100).toFixed(2));
 	}
+  }
+  function shuliang(e) {
+      var mm = $(e).parent().parent().parent();
+      var price = mm.find("#goods_price").text();
+
+      if(mm.find("#num").val()==''){
+          mm.find("#num").val(1);
+          return false;
+      }
+     // mm.find("#num").val(parseInt(mm.find("#num").val())+1);
+      mm.find("#price").text((price*mm.find("#num").val()).toFixed(2));
+
   }
   //数量减少操作
   function reduce(e){
@@ -297,51 +317,65 @@
 <script>
     $(function(){
         /*查询购物车*/
-        selectCarAll()
+        selectCarAll();
     })
     /*查询购物车*/
     function  selectCarAll() {
         $.ajax({
-            url:"http://192.168.147.1:8086/selectCarAll",
-            type:"post",
+            url:'../selectCarAll',
+            type:"get",
             dataType:"json",
+
             success:function (data) {
+                /*alert(data);
                 var  car=data.webDrugBean;
+                alert(car.length);*/
                 var html1="";
-                for (var i=0;i<car.length;i++){
+                for(var i=0;i<data.length;i++){
                     html1+= '<div class="myshoppro-list">\n' +
                         '        <ul class="myshop-pro-information">\n' +
                         '            <li class="myshopcar-choise">\n' +
                         '                <input type="checkbox" name="goods_id[]" onclick="getPrice(this)" value="912" style="margin: 30px 10px 0 20px;float: left;">\n' +
-                        '                <input type="hidden" name="goods_act[]" value="">\n' +
+                        '                <input type="hidden" name="goods_act[]" id="productid" value="'+ data[i].goodsId+'">\n' +
                         '                <a href="/index.php/Home/Goods/goodInfo/id/912.html" target="_black" class="myshop-pro-img">\n' +
-                        '                    <img src="'+car[i].img+'">\n' +
+                        '                    <img src="'+data[i].goodsPrice+'">\n' +
                         '                </a>\n' +
                         '            </li>\n' +
                         '            <li class="myshop-proinfobox">\n' +
-                        '                <a href="/index.php/Home/Goods/goodInfo/id/912.html" target="_black" style="color: #666;">'+car[i].namee+'</a>\n' +
+                        '                <a href="/index.php/Home/Goods/goodInfo/id/912.html" target="_black" style="color: #666";><span id="spname">'+data[i].goodsName+'</span></a>\n' +
                         '            </li>\n' +
-                        '            <li class="myshop-guige" style="color: #666;">'+car[i].productSize+'</li>\n' +
-                        '            <li class="myshop-procom" style="color: #666;"><a href="#">'+car[i].productStockId+'</a></li>\n' +
-                        '            <li class="myshop-proper">￥<span id="goods_price">'+car[i].productPrice+'</span></li>\n' +
+                        '            <li class="myshop-guige" style="color: #666;">'+data[i].goodsPrice+'</li>\n' +
+                        '            <li class="myshop-procom" style="color: #666;"><a href="#">'+data[i].goodsPrice+'</a></li>\n' +
+                        '            <li class="myshop-proper">￥<span id="goods_price">'+data[i].goodsPrice+'</span></li>\n' +
                         '            <li class="myshopcar-num">\n' +
                         '                <div class="num-add-jian">\n' +
                         '                    <a href="javascript:void(0);" onclick="reduce(this)">-</a>\n' +
-                        '                    <input type="text" name="goods_num[]" id="num" value="'+car[i].proDealCount+'">\n' +
+                        '                    <input onkeyup="this.value=this.value.replace(/[^\\d]/g,\'\');" onBlur="shuliang(this) " onafterpaste="this.value=this.value.replace(/\\D/g,\'\')" type="text" name="goods_num[]" id="num" value="'+ data[i].goodsCount+'">\n' +
                         '                    <a href="javascript:void(0);" onclick="plus(this)">+</a>\n' +
                         '                </div>\n' +
                         '            </li>\n' +
-                        '            <li class="myshopcar-count" style="color: #fe1b1b;font-weight: bold;">￥<span id="price">'+(car[i].productPrice*car[i].proDealCount)+'</span></li>\n' +
+                        '            <li class="myshopcar-count" style="color: #fe1b1b;font-weight: bold;">￥<span id="price">'+(data[i].goodsPrice*data[i].goodsCount)+'</span></li>\n' +
                         '            <li class="myshop-itemlist">\n' +
                         '                <a href="javascript:void(0);" onclick="del_cart(this,912)">删除</a>\n' +
                         '                <a href="javascript:void(0);">收藏</a>\n' +
                         '            </li>\n' +
                         '        </ul>'
                 }
-                $(".myshoppro-list").append(html1)
+                $("#myshoppro-list").append(html1)
             }
         })
     }
+</script>
+<script type="text/javascript">
+    $('#num').keyup(function (){
+        var value=this.value;
+        var min=1;
+        var max=1000;
+        if(parseInt(value)<min||parseInt(value)){
+            alert('输入错误');
+            this.value='';
+        }
+    })
 </script>
 
 </body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns :th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入jquery -->
+    <script type="text/javascript"
+            src="../js/jquery.min.js"></script>
+    <!-- 引入bootstrap -->
+    <link type="text/css" rel="stylesheet"
+          href="../bootstrap3/css/bootstrap.css">
+    <script type="text/javascript"
+            src="../bootstrap3/js/bootstrap.js"></script>
+    <!-- 引入table表格插件 -->
+    <link rel="stylesheet"
+          href="../js/bootstrap-table/bootstrap-table.css">
+    <script type="text/javascript"
+            src="../js/bootstrap-table/bootstrap-table.js"></script>
+    <script type="text/javascript"
+            src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <!--引入bootbox弹框插件 -->
+    <script type="text/javascript"
+            src="../js/bootstrap-bootbox/bootbox.js"></script>
+    <!--引入date日期插件-->
+    <link rel="stylesheet"
+          href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+    <script type="text/javascript"
+            src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript"
+            src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+</head>
+<body>
+
+<!--定义表格-->
+<input type="button" value="加入购物车" class="btn btn-default" onclick="addcart()">
+<table class="table table-striped table-bordered table-hover" id="myTable"></table>
+
+<script type="text/javascript">
+    $(function () {
+        queryGoods();
+    });
+
+    //我的购物车表格
+    function queryGoods() {
+        $('#myTable').bootstrapTable({
+            url: "../selectCarAll",
+            striped: true,
+
+            /*pagination : true,
+            pageNumber : 1,
+            pageSize : 5,
+            pageList:[5, 10, 20, 50],
+            sidePagination : 'server',*/
+            //clickToSelect: true, //是否启用点击选中行
+            showFooter:true,  //开启底部
+            /*queryParams: function () {
+                return {
+                    page : this.pageNumber,
+                    rows : this.pageSize,
+                }
+            },*/
+            columns: [
+                {field:'check',checkbox:true,
+                    footerFormatter: function () {
+                        return "<input id='js'>";
+                    }
+                },
+                //{field: 'goodsId', title: 'id'},
+                {field: 'goodsName', title: '名称'},
+                {field: 'goodsPrice', title: '单价'},
+                {field: 'goodsCount', title: '数量',
+                    formatter:function (value,row,index) {
+                        //var heid = 'count'+row.goodsId;
+                        return "<input type='button' value='-' onclick='des("+row.goodsId+","+row.goodsPrice+")'>"+
+                               '<input id="'+row.goodsId+'" value="'+value+'" readonly size="3">'+
+                               "<input type='button' value='+' onclick='inc("+row.goodsId+","+row.goodsPrice+")'>"
+                    }
+                },
+                {field: 'totalPrice', title: '小计',
+                    formatter:function (value,row,index) {
+                      // return "<span id='he"+index+"'></span>"
+                        return "<span id='he"+row.goodsId+"'>"+row.goodsPrice+"</span>"
+                    }
+
+                    //计算此列的值
+                    /*footerFormatter: function(rows){
+                            var total=0;
+                            for(var i=0;i<rows.length;i++){
+                                var id = rows[i].goodsId;
+                                var price = $("#he"+id).html();
+                                alert(price)
+                                total += Number(price);
+                                alert(total);
+                                //$("#z").html(total);
+                            }
+                    }*/
+                },
+                {field:'total',title:'操作',
+                    formatter:function(value,row,index){
+                        return '<input type="button" value="删除" onclick="del('+row.goodsId+')">'
+                    },
+                    footerFormatter: function () {
+                        return "<input type='button' value='结算' onclick='total()'>";
+                    }
+                }
+            ],
+            onPostBody:function () {
+                //合并页脚
+                merge_footer();
+            }
+        })
+    }
+
+    //合并页脚
+    function merge_footer() {
+        //获取table表中footer 并获取到这一行的所有列
+        var footer_tbody = $('.fixed-table-footer table tbody');
+        var footer_tr = footer_tbody.find('>tr');
+        var footer_td = footer_tr.find('>td');
+        var footer_td_1 = footer_td.eq(0);
+        //由于我们这里做统计只需要两列，故可以将除第一列与最后一列的列全部隐藏，然后再设置第一列跨列
+        //遍历隐藏中间的列 下标从1开始
+        for(var i=1;i<footer_td.length-1;i++) {
+            footer_td.eq(i).hide();
+        }
+        //设置跨列
+        footer_td_1.attr('colspan', footer_td.length-1).show();
+        //这里可以根据自己的表格来设置列的宽度 使对齐
+        footer_td_1.attr('width', "910px").show();
+    }
+
+    //加入购物车
+    function addcart(){
+        $.ajax({
+            url: '../goods/addCart',
+            type: 'post',
+            async:false,
+            contentType: 'application/json',
+            //data: JSON.stringify(drug),
+            //dataType: 'json',
+        })
+    }
+
+   //减
+    function des(id,price) {
+        //alert(typeof ($("#"+index).val()));
+        var count = parseInt($("#"+id).val());
+        if(count > 1){
+            count -= 1;
+        }
+        $("#"+id).val(count);
+        var sum =price*count;
+        $("#he"+id).html(sum);
+    }
+
+
+    //加
+    function inc(id,price) {
+        var count = parseInt($("#"+id).val());
+        count += 1;
+        $("#"+id).val(count);
+        var sum = String(price*count);
+        $("#he"+id).html(sum);
+    }
+
+    //总计
+    function total(){
+        var rows = $("#myTable").bootstrapTable('getSelections')
+        var total=0;
+        for(var i=0;i<rows.length;i++){
+            var id = rows[i].goodsId;
+            var price = $("#he"+id).html();
+            //alert(price)
+            total += Number(price);
+            //alert(total);
+            $("#js").val(total);
+        }
+    }
+
+    //删除
+    function del(id) {
+        alert(id);
+        $.ajax({
+            url:"../goods/delCart?id="+id,
+            type:"delete",
+            success:function () {
+                location.reload();
+            }
+        })
+    }
+
+    //支付
+    function pay() {
+        var money = $("#js").val(total);
+        $.ajax({
+            url:"",
+            data:{"money":money},
+            success:function () {
+                alert("成功");
+            }
+        })
+    }
+
+
+
+
+
+  //日期
+   /* function time() {
+        $('.date').datetimepicker({
+            language: 'zh-CN',//显示中文
+            format: 'yyyy-mm-dd',//显示格式
+            //format: 'yyyy-mm-dd hh:ii:ss',
+            minView: "month",//设置只显示到月份
+            initialDate: new Date(),//初始化当前日期
+            autoclose: true,//选中自动关闭
+            todayBtn: true//显示今日按钮
+        })
+    }*/
+</script>
+</body>
+</html>

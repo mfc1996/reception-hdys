@@ -2,12 +2,13 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/reception-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/reception-api/src/main/java/com/jk/model/UserBean.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/reception-api/src/main/java/com/jk/model/WebShoppingcCart.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-api/src/main/java/com/jk/model/UserBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/reception-api/src/main/java/com/jk/model/WebShoppingcCart.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reception-eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/java/com/jk/config" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/java/com/jk/controller/MedicalHomeController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/java/com/jk/config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/java/com/jk/util/AlipayConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/spring-redis.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/animate.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/bootstrap.min.css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/css/custom-fonts.css" charset="GBK" />
@@ -60,10 +61,11 @@
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/js2" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/materialize" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/static/我的购物车_files" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/templates/cartshop.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/templates/mycar.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-feign-gck/src/main/resources/templates/wodecar.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reception-provider-gck" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reception-provider-gck/src/main/resources/mapper" charset="GBK" />
-    <file url="PROJECT" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

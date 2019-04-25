@@ -43,7 +43,7 @@ public class chanpinBean implements Serializable {
 
     private String  img;
 
-    public String getImg() {
+    public String getImg(String s) {
         return img;
     }
 
@@ -87,7 +87,7 @@ public class chanpinBean implements Serializable {
         this.productName = productName;
     }
 
-    public Double getProductPrice() {
+    public Double getProductPrice(int i) {
         return productPrice;
     }
 

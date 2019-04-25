@@ -34,13 +34,13 @@ public class pageController {
 
     @RequestMapping("wodecar")
     public String mycars() {
-
+;
         return "wodecar";
     }
     @RequestMapping("mycar")
     public String mycar() {
 
-        return "mycar";
+        return "cartshop";
     }
 
 }

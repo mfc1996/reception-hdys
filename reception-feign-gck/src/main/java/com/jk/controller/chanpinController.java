@@ -10,7 +10,6 @@
  */
 package com.jk.controller;
 
-import com.jk.model.UserBean;
 import com.jk.model.WebShoppingcCart;
 import com.jk.model.chanpinBean;
 import com.jk.service.chanpinServiceFeign;
@@ -24,14 +23,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Date;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈购物车支付流程，沙箱操作，购物车信息缓存redis，生成订单存mysql〉<br>
  * 〈gck〉
  *
  * @author chenkai
@@ -69,10 +66,23 @@ public class chanpinController {
     //*添加购物车*//*
     @ResponseBody
     @RequestMapping("addCar")
-    public String addCar(Integer spid, HttpServletRequest request, HttpServletResponse response, Integer sl) {
-        WebShoppingcCart webShoppingcCart = new WebShoppingcCart();
-        /*HttpSession session = request.getSession();
-        Integer  userid= (Integer) session.getAttribute("user");*/
+    public void addCar(Integer spid, HttpServletRequest request, HttpServletResponse response, Integer sl) throws UnsupportedEncodingException {
+        //chanpinBean product = cpServiceFeign.queryProductById(spid);
+
+        WebShoppingcCart cp = new WebShoppingcCart();
+        String key ="keys"+"1";
+        cp.setGoodsId(3);
+        cp.setGoodsName("郭晨凯");
+        cp.setGoodsPrice(10);
+        cp.setGoodsCount(2);
+        redisTemplate.opsForList().leftPush(key,cp);
+
+
+
+
+        /*WebShoppingcCart webShoppingcCart = new WebShoppingcCart();
+        HttpSession session = request.getSession();
+        Integer  userid= (Integer) session.getAttribute("user");
         UserBean user = (UserBean) redisTemplate.opsForValue().get("user");
         Integer biaoshi = 1;
         //*查询用户是否登录*//*
@@ -117,21 +127,40 @@ public class chanpinController {
             return "1";
         } else {
             return "0";
-        }
+        }*/
+    }
+
+    @GetMapping("queryCart")
+    @ResponseBody
+    public List queryCart(){
+        String key ="keys"+"1";
+        //取redis
+        List list = redisTemplate.opsForList().range(key,0, -1);
+        System.out.println(list);
+        return list;
     }
 
     /*查询购物车*/
     @ResponseBody
     @RequestMapping("selectCarAll")
-    public WebShoppingcCart selectCarAll(HttpServletRequest httpServletRequest){
-        UserBean userBean = (UserBean) redisTemplate.opsForValue().get("user");
+    public List<WebShoppingcCart> selectCarAll(HttpServletRequest httpServletRequest){
+        String key ="keys"+"1";
+
+
+        List<WebShoppingcCart> list =redisTemplate.opsForList().range(key,0,-1);
+        for (WebShoppingcCart ls:list) {
+            String  a= ls.getGoodsName();
+            System.out.println("============"+a);
+        }
+        return list;
+        /*UserBean userBean = (UserBean) redisTemplate.opsForValue().get("user");
         WebShoppingcCart webShoppingcCart = new WebShoppingcCart();
         if (userBean!=null){
             webShoppingcCart = (WebShoppingcCart) redisTemplate.opsForValue().get(userBean.getUserId());
             return webShoppingcCart;
         }else{
             return  webShoppingcCart;
-        }
+        }*/
     }
 
 
